@@ -3,11 +3,11 @@
     padding: 0;
 }
 .container-center{
-   
+/*    
    background-image: url('../images/logo.png');
    background-repeat: no-repeat;
-   background-size:cover;
-    /* background: linear-gradient(15deg,#1a2056a7,#5250bd,#08076f); */
+   background-size:cover; */
+    background: linear-gradient(15deg,#1a2056a7,#5250bd,#08076f);
     display: flex;
     flex-direction: column;
     justify-content: center;

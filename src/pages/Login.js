@@ -13,10 +13,11 @@ function Login() {
            <Container>
             <Row>
             
-            <Col md={3} xs={1} sm={2} >
+            <Col md={8} xs={8} sm={6} >
 
             </Col>
-              <Col md={6} xs={10} sm={8} >
+            
+              <Col md={4} xs={4} sm={6} >
               
               <div className='center-form'>
                   <h2>Login</h2><br></br><br></br>
@@ -27,7 +28,7 @@ function Login() {
                     <input type="text"  required autoFocus value={email} onChange={e => setEmail(e.target.value)}></input><br></br><br></br>
                     <label>Password :</label>{"  "}
                     <input type="password" required autoFocus value={password} onChange={e => setPassword(e.target.value)}></input><br></br><br></br>
-                    <button className="btn btn-primary">Sign in</button><br></br><br></br>
+                    <button className="btn btn-primary" onClick={()=>{localStorage.setItem('id',"subash")}}>Sign in</button><br></br><br></br>
                     <p>Don't have an account ?<span onClick={() => setAccount(!Account)}>Sign up</span></p>
                   </form>):
                   (
@@ -45,9 +46,7 @@ function Login() {
                 </div>
          
               </Col>
-              <Col md={3} xs={1} sm={2} >
-
-</Col>
+              
             </Row>
            </Container>
 

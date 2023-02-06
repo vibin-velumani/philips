@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {useNavigate} from 'react-router-dom';
 
-export default function Header() {
+export default function Header(props) {
   const navigate = useNavigate();
   return (
     <Navbar collapseOnSelect expand="lg"  className="head">
@@ -16,7 +16,8 @@ export default function Header() {
         <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
           <Nav>
             <Nav.Link href="#features" className='space'>Home</Nav.Link>
-            <NavDropdown  className='space' title="Products" id="collasible-nav-dropdown" >
+            <NavDropdown   title="Products" id="drop" >
+                   {/* id : "collasible-nav-dropdown" --- for collabse navbar */}
               <NavDropdown.Item href="#action/3.1">Lights</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Fans
@@ -32,10 +33,10 @@ export default function Header() {
             <Nav.Link href="#offers" className='space'>Offers</Nav.Link>
 
             <Nav.Link href="#pricing" className='space'>Cart</Nav.Link>
-
-            <Nav.Link href="#pric" className='space'>Contact Us</Nav.Link>
-             
-            <Nav.Link href="#deets" className='space'>Login</Nav.Link>
+            <Nav.Link href="#pric" className='space'>Profile</Nav.Link>
+             {(props.user!=='')?<Nav.Link  className='space' onClick={()=>{localStorage.removeItem('id');props.setUser('');}}>Logout</Nav.Link>
+             :<Nav.Link onClick={()=>{navigate('/login')}} className='space'>Login</Nav.Link>}
+            
             
           </Nav>
         

@@ -47,15 +47,15 @@ export default function Footer() {
          
               <li>We are in</li>
               <br></br>
-              <SocialIcon url="https://jaketrent.com" bgColor="#4267B2" fgColor="#FEFEFE" network="facebook" style={{marginRight:"20px"}}/>
-              <SocialIcon url="https://jaketrent.com" bgColor="#4267B2" fgColor="#FEFEFE" network="instagram" style={{marginRight:"20px"}}/>
-              <SocialIcon url="https://jaketrent.com" bgColor="#4267B2" fgColor="#FEFEFE" network="twitter" style={{marginRight:"20px"}}/>
+              <SocialIcon url="https://jaketrent.com" bgColor="#4267B2" fgColor="#FEFEFE" network="facebook" className="social"/>
+              <SocialIcon url="https://jaketrent.com" bgColor="#4267B2" fgColor="#FEFEFE" network="instagram" className="social"/>
+              <SocialIcon url="https://jaketrent.com" bgColor="#4267B2" fgColor="#FEFEFE" network="twitter" className="social" />
               </ul>
               </Col>
       </Row>
   </Container>
   <Container fluid className='footer-end'>
-      <p className='footer-end-txt'>© 2022 Team Beta. All rights reserved.</p>
+      <p className='footer-end-txt'>© 2023 Team Beta. All rights reserved.</p>
   </Container>
   </>);
 }
