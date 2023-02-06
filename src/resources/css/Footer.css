@@ -1,0 +1,39 @@
+.foot-li{  
+    color:white;
+    font-size: large;
+    margin-right: 30px;
+    margin-left: 60px;
+}
+.foot-li>li{  
+   margin-top: 10px;
+}
+
+.foot-li>li:hover{  
+    color:rgb(148, 148, 226);
+    cursor: pointer;
+ }
+.footer-main{
+    
+    padding-top: 10px;
+    padding-bottom: 10px;
+/*     
+    background-color:darkslateblue; */
+    background-color: #344154;
+}
+.footer-end{
+    text-align: center;
+    background-color: white;
+}
+
+.footer-end-txt{
+    font-weight: 600; 
+    padding-top: 10px;   
+}
+.footer-top{
+     text-align: center;
+}
+.footer-top-item>img{
+    padding-top: 10px;
+    padding-bottom: 10px;
+      width: 200px;
+}
