@@ -11,14 +11,14 @@ export default function Header(props) {
   return (
     <Navbar collapseOnSelect expand="lg"  className="head">
       <Container>
-        <Navbar.Brand href="#home" className='brand' >Shree Maruthi Agencies </Navbar.Brand>
+        <Navbar.Brand onClick={()=>{navigate('/')}} className='brand' >Shree Maruthi Agencies </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
           <Nav>
-            <Nav.Link href="#features" className='space'>Home</Nav.Link>
+            <Nav.Link onClick={()=>{navigate('/')}} className='space'>Home</Nav.Link>
             <NavDropdown   title="Products" id="drop" >
                    {/* id : "collasible-nav-dropdown" --- for collabse navbar */}
-              <NavDropdown.Item href="#action/3.1">Lights</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=>{navigate('/product')}}>Lights</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Fans
               </NavDropdown.Item>
@@ -33,7 +33,7 @@ export default function Header(props) {
             <Nav.Link href="#offers" className='space'>Offers</Nav.Link>
 
             <Nav.Link href="#pricing" className='space'>Cart</Nav.Link>
-            <Nav.Link href="#pric" className='space'>Profile</Nav.Link>
+            <Nav.Link onClick={()=>{navigate('/profile')}} className='space'>Profile</Nav.Link>
              {(props.user!=='')?<Nav.Link  className='space' onClick={()=>{localStorage.removeItem('id');props.setUser('');}}>Logout</Nav.Link>
              :<Nav.Link onClick={()=>{navigate('/login')}} className='space'>Login</Nav.Link>}
             
