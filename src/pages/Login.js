@@ -1,13 +1,25 @@
 import '../resources/css/Login.css';
 import { Row,Col,Container } from 'react-bootstrap';
 import { useState } from 'react';
-import Logo from '../resources/images/logo.png';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { useAuth } from '../Authentication';
+import { Form,Button } from 'react-bootstrap';
 function Login() {
+
+    const location=useLocation();
+    const auth=useAuth();
     const [Account,setAccount]=useState(true);
+    const [name,setName]=useState('')
     const[email,setEmail]=useState('');
     const[password,setPassword]=useState('');
+    const[signconfirmPassword,setsignConfirmPassword]=useState();
+    const[signPassword,setsignPassword]=useState();
     const navigate = useNavigate();
+    const submit=()=>{
+           auth.Login(null);
+           navigate(location.state?location.state.path:"/",{replace:true});   // replace:true is used to avoid stack of navigation history
+    }
     return (
     <>
     <div className='container-center'>
@@ -21,32 +33,94 @@ function Login() {
             
               <Col md={4} xs={4} sm={6} >
               
-              <div className='center-form'>
-                  <h2>Login</h2><br></br><br></br>
                   {Account?
                   (
-                  <form>
-                    <label>Username :</label>{"  "}
-                    <input type="text"  required autoFocus value={email} onChange={e => setEmail(e.target.value)}></input><br></br><br></br>
-                    <label>Password :</label>{"  "}
-                    <input type="password" required autoFocus value={password} onChange={e => setPassword(e.target.value)}></input><br></br><br></br>
-                    <button className="btn btn-primary" onClick={()=>{localStorage.setItem('id',"subash")}}> Sign in</button><br></br><br></br>
-                    <p>Don't have an account ?<span onClick={() => setAccount(!Account)}> Sign up</span></p>
-                  </form>):
-                  (
-                    <form>
-                        <label>Username :</label>{"  "}
-                    <input type="text"  required autoFocus value={email} onChange={e => setEmail(e.target.value)}></input><br></br><br></br>
-                    <label>Password :</label>{"  "}
-                    <input type="password" required autoFocus value={password} onChange={e => setPassword(e.target.value)}></input><br></br><br></br>
-                    <button className="btn btn-primary"> Sign Up</button><br></br><br></br>
-                    <p>Have an account ?<span onClick={() => setAccount(!Account)}>Sign in</span></p>
+                    
+              <div className='center-form'>
+              <h2>Login</h2><br></br><br></br>
+                    <Form onSubmit={submit}>
+                    <Form.Group controlId="formBasicEmail">
+                      <Form.Label>Email address</Form.Label>
+                      <Form.Control
+                        type="email"
+                        placeholder="Enter email"
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
+                      />
+                    </Form.Group>
+              
+                    <Form.Group controlId="formBasicPassword">
+                      <Form.Label>Password</Form.Label>
+                      <Form.Control
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(event) => setPassword(event.target.value)}
+                      />
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                      Login
+                    </Button>
+                    <p>Don't have an Account ?<span className='guest' onClick={()=>{setAccount(!Account)}}>Sign Up</span></p>
 
-                    </form>
+                  </Form>
+                  </div>
+                ):
+                  (
+                    
+              <div className='center-form'>
+              <h2>Sign Up</h2><br></br><br></br>
+                    <Form onSubmit={submit}>
+                    <Form.Group controlId="formBasicName">
+                      <Form.Label>Name</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter name"
+                        value={name}
+                        onChange={(event) => setName(event.target.value)}
+                      />
+                    </Form.Group>
+              
+                    <Form.Group controlId="formBasicEmail">
+                      <Form.Label>Email address</Form.Label>
+                      <Form.Control
+                        type="email"
+                        placeholder="Enter email"
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
+                      />
+                    </Form.Group>
+              
+                    <Form.Group controlId="formBasicPassword">
+                      <Form.Label>Password</Form.Label>
+                      <Form.Control
+                        type="password"
+                        placeholder="Password"
+                        value={signPassword}
+                        onChange={(event) => setsignPassword(event.target.value)}
+                      />
+                    </Form.Group>
+              
+                    <Form.Group controlId="formBasicConfirmPassword">
+                      <Form.Label>Confirm Password</Form.Label>
+                      <Form.Control
+                        type="password"
+                        placeholder="Confirm Password"
+                        value={signconfirmPassword}
+                        onChange={(event) => setsignConfirmPassword(event.target.value)}
+                      />
+                    </Form.Group>
+              
+                    <Button variant="primary" type="submit">
+                      Signup
+                    </Button>
+                    <p>Have an Account ?<span className='guest' onClick={()=>{setAccount(!Account)}}>Sign In</span></p>
+                  </Form>
+                  
+                </div>
+
                   )
                   }
-                  <p>Continue as guest <span className='guest' onClick={()=>{navigate('/')}}>Click here</span></p>
-                </div>
          
               </Col>
               

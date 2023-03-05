@@ -6,27 +6,30 @@ import { useState,useEffect } from 'react';
 import Home from './pages/Home';
 import { Product } from './pages/Product';
 import { Profile } from './pages/Profile';
+import { Admin } from './pages/Admin';
+import { useAuth } from './Authentication';
+import Authentication from './Authentication';
+import AuthRequired from './pages/AuthRequired';
+import Start from './pages/Start';
+import PageNotFound from './pages/PageNotFound';
 function App() {
-  const[user,setUser]=useState('');
- 
-  useEffect(() => {
-    const items = localStorage.getItem('id');
-    if (items) {
-      console.log(items);
-     setUser(items);
-    }
-  }, []);
-  
-
+  const auth=useAuth();
   return (
     <BrowserRouter>
+    <Authentication>
     <Routes>
-      <Route path='/' element={<Home user={user} setUser={setUser}/>}></Route>
-      <Route path='/product' element={<Product user={user} setUser={setUser}/>}/>
-      <Route path='/profile' element={user?<Profile user={user} setUser={setUser}/>:<Login/>}/>
+      <Route path='/' element={<Start />}>
+        {/* <Route path='product' element={<Product />}/> */}
+        <Route index element={<Home/>}></Route>
+        <Route path='profile' element={<AuthRequired><Profile/></AuthRequired>}/>
+        <Route path='login' element={<Login />}/>
 
-      <Route path='/login' element={<Login/>}></Route>
+      </Route>
+      <Route path='*' element={<PageNotFound/>}/>
+
+      {/* <Route path='/admin' element={<Admin/>}></Route> */}
     </Routes>
+    </Authentication>
     </BrowserRouter>
   );
 }
