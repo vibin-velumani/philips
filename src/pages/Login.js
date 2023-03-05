@@ -1,4 +1,5 @@
 import '../resources/css/Login.css';
+import axios from 'axios';
 import { Row,Col,Container } from 'react-bootstrap';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -13,13 +14,24 @@ function Login() {
     const [name,setName]=useState('')
     const[email,setEmail]=useState('');
     const[password,setPassword]=useState('');
-    const[signconfirmPassword,setsignConfirmPassword]=useState();
-    const[signPassword,setsignPassword]=useState();
+    const[signconfirmPassword,setsignConfirmPassword]=useState('');
+    const[signPassword,setsignPassword]=useState('');
     const navigate = useNavigate();
-    const submit=()=>{
+    const clear=()=>{
+      setName('');
+      setEmail('');
+      setPassword('');
+      setsignConfirmPassword('');
+      setsignPassword('')
+    }
+    const login=async()=>{
            auth.Login(null);
            navigate(location.state?location.state.path:"/",{replace:true});   // replace:true is used to avoid stack of navigation history
     }
+    const register=()=>{
+      auth.Login(null);
+      navigate(location.state?location.state.path:"/",{replace:true});   // replace:true is used to avoid stack of navigation history
+}
     return (
     <>
     <div className='container-center'>
@@ -27,18 +39,18 @@ function Login() {
            <Container>
             <Row>
             
-            <Col md={8} xs={8} sm={6} >
+            <Col md={8} xs={1} sm={2} >
 
             </Col>
             
-              <Col md={4} xs={4} sm={6} >
+              <Col md={4} xs={10} sm={8} >
               
                   {Account?
                   (
                     
               <div className='center-form'>
               <h2>Login</h2><br></br><br></br>
-                    <Form onSubmit={submit}>
+                    <Form onSubmit={login}>
                     <Form.Group controlId="formBasicEmail">
                       <Form.Label>Email address</Form.Label>
                       <Form.Control
@@ -47,7 +59,7 @@ function Login() {
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
                       />
-                    </Form.Group>
+                    </Form.Group><br/>
               
                     <Form.Group controlId="formBasicPassword">
                       <Form.Label>Password</Form.Label>
@@ -57,11 +69,13 @@ function Login() {
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
                       />
-                    </Form.Group>
+                    </Form.Group><br/>
+                    <center>
                     <Button variant="primary" type="submit">
                       Login
                     </Button>
-                    <p>Don't have an Account ?<span className='guest' onClick={()=>{setAccount(!Account)}}>Sign Up</span></p>
+                    </center><br/>
+                    <p>Don't have an Account ?<span className='guest' onClick={()=>{setAccount(!Account)}}> Register</span></p>
 
                   </Form>
                   </div>
@@ -69,8 +83,8 @@ function Login() {
                   (
                     
               <div className='center-form'>
-              <h2>Sign Up</h2><br></br><br></br>
-                    <Form onSubmit={submit}>
+              <h2>Register</h2><br></br><br></br>
+                    <Form onSubmit={register}>
                     <Form.Group controlId="formBasicName">
                       <Form.Label>Name</Form.Label>
                       <Form.Control
@@ -79,7 +93,7 @@ function Login() {
                         value={name}
                         onChange={(event) => setName(event.target.value)}
                       />
-                    </Form.Group>
+                    </Form.Group><br/>
               
                     <Form.Group controlId="formBasicEmail">
                       <Form.Label>Email address</Form.Label>
@@ -89,7 +103,7 @@ function Login() {
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
                       />
-                    </Form.Group>
+                    </Form.Group><br/>
               
                     <Form.Group controlId="formBasicPassword">
                       <Form.Label>Password</Form.Label>
@@ -99,7 +113,7 @@ function Login() {
                         value={signPassword}
                         onChange={(event) => setsignPassword(event.target.value)}
                       />
-                    </Form.Group>
+                    </Form.Group><br/>
               
                     <Form.Group controlId="formBasicConfirmPassword">
                       <Form.Label>Confirm Password</Form.Label>
@@ -109,12 +123,12 @@ function Login() {
                         value={signconfirmPassword}
                         onChange={(event) => setsignConfirmPassword(event.target.value)}
                       />
-                    </Form.Group>
-              
+                    </Form.Group><br/>
+                       <center>
                     <Button variant="primary" type="submit">
                       Signup
-                    </Button>
-                    <p>Have an Account ?<span className='guest' onClick={()=>{setAccount(!Account)}}>Sign In</span></p>
+                    </Button></center><br/>
+                    <p>Have an Account ?<span className='guest' onClick={()=>{setAccount(!Account)}}> Sign In</span></p>
                   </Form>
                   
                 </div>
@@ -123,7 +137,9 @@ function Login() {
                   }
          
               </Col>
-              
+              <Col xs={1} sm={2} >
+
+            </Col>
             </Row>
            </Container>
 
