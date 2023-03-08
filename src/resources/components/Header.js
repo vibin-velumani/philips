@@ -13,18 +13,18 @@ export default function Header() {
   return (
     <Navbar collapseOnSelect expand="lg"  className="head">
       <Container>
-        <Navbar.Brand onClick={()=>{navigate('/')}} className='brand' >Shree Maruthi Agencies </Navbar.Brand>
+        <Navbar.Brand onClick={()=>{navigate('/')}} className='brand' >CRYSTAL PARTS</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
           <Nav>
             <Nav.Link onClick={()=>{navigate('/')}} className='space'>Home</Nav.Link>
             <NavDropdown   title="Products" id="drop" >
                    {/* id : "collasible-nav-dropdown" --- for collabse navbar */}
-              <NavDropdown.Item to='product'>Lights</NavDropdown.Item>
+              <NavDropdown.Item to='product'>Home Items</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Fans
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3" >Iron Box</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3" >Measuring tools</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.4">
                 Switches
               </NavDropdown.Item>

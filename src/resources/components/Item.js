@@ -15,6 +15,7 @@ function Item (props) {
               </Card.Text>
             </Card.Body>
           </Card>
+          
       </Col>
     </>
   )

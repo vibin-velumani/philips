@@ -32,7 +32,7 @@ function Login() {
     const login=async(e)=>{
       e.preventDefault()
 try{
-         await axios.post('auth/login',{name,email,password}).then((res)=>{auth.login(res.data.details); navigate(location.state?location.state.path:"/",{replace:true})}).catch((err)=>{console.log(err)})
+         await axios.post('auth/login',{email,password}).then((res)=>{auth.login(res.data.details); navigate(location.state?location.state.path:"/",{replace:true})}).catch((err)=>{console.log(err)})
 }
 catch(err)
 {
@@ -40,9 +40,11 @@ catch(err)
 }
 
     }
-    const register=()=>{
-      auth.Login(null);
-      navigate(location.state?location.state.path:"/",{replace:true});   // replace:true is used to avoid stack of navigation history
+    const register=async(e)=>{
+      e.preventDefault();
+      await axios.post('auth/signin',{name,email,password:signPassword}).then((res)=>{setAccount(true)}).catch((err)=>{console.log(err)})
+
+      // navigate(location.state?location.state.path:"/",{replace:true});   // replace:true is used to avoid stack of navigation history
 }
 const forget=async(e)=>{
        e.preventDefault();

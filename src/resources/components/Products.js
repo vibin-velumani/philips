@@ -6,7 +6,7 @@ export const Products = () => {
     <>
     
     <Row xs={2} md={3} className="g-4">
-      {Array.from({ length: 8 }).map((_, idx) => (
+      {Array.from({ length: 9}).map((_, idx) => (
         <Item/>
       ))}
     </Row>

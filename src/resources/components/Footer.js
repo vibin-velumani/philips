@@ -22,12 +22,12 @@ export default function Footer() {
               </ul></Col>
           <Col sm={3} md={3}  xs={6}>
               <ul type="none" className='foot-li'>
-                  <li>Fans</li>
-                  <li>Kitchen wares</li>
-                  <li>Iron box</li>
-                  <li >Lights</li>
-                  <li>Philips Hue</li>
-                  <li>Health Care</li>
+                  <li>Home Appliances</li>
+                  <li>Power Tools</li>
+                  <li>Garden tools</li>
+                  <li >Measuring tools</li>
+                  <li>Cleaning tools </li>
+                  <li>Smart Home</li>
                   {/* &#38; */}
               </ul>
           </Col>
@@ -36,7 +36,7 @@ export default function Footer() {
                   <li>Electronics</li>
                   <li>New Arrivals</li>
                   <li>Bulk Discount</li>
-                  <li>Location</li>
+                  <li onClick={()=>{navigate('/aboutus')     }}>Location</li>
                   <li>Privacy Policy</li>
                   <li>Terms & Conditions</li>
                   {/* &#38; */}
