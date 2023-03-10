@@ -31,7 +31,7 @@ function App() {
         <Route path='profile' element={<AuthRequired><Profile/></AuthRequired>}/>
         <Route path='login' element={<Login />}/>
         <Route path='aboutus' element={<Location/>}/>
-        <Route path='ContactUs' element={<ContactUS/>}/> 
+        <Route path='ContactUs' element={<ContactUs/>}/> 
 
  
       </Route>

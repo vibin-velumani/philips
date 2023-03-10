@@ -33,4 +33,4 @@ const ContactUs =()=>{
     );
 };
 
-export default About;  
+export default ContactUs;  
