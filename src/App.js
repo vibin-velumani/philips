@@ -18,8 +18,9 @@ import AuthRequired from './pages/AuthRequired';
 import Start from './pages/Start';
 import PageNotFound from './pages/PageNotFound';
 import Location from './pages/Loaction';
+import ContactUs from './pages/ContactUs';
 function App() {
-  const auth=useAuth();
+  const auth=useAuth(); 
   return (
     <BrowserRouter>
     <Authentication>
@@ -30,7 +31,9 @@ function App() {
         <Route path='profile' element={<AuthRequired><Profile/></AuthRequired>}/>
         <Route path='login' element={<Login />}/>
         <Route path='aboutus' element={<Location/>}/>
+        <Route path='ContactUs' element={<ContactUS/>}/> 
 
+ 
       </Route>
       <Route path='login' element={<Login/>}/>
 
@@ -49,3 +52,4 @@ function App() {
 }
 
 export default App;
+ 

@@ -15,7 +15,7 @@ export default function Footer() {
           <Col sm={3} md={3} xs={6}><ul type="none" className='foot-li'>
               <li onClick={()=>{navigate('/')}}>Home</li>
               <li onClick={()=>{navigate('/about')}}>About Us</li>
-              <li onClick={()=>{navigate('/support')}}>Contact Us</li>
+              <li onClick={()=>{navigate('/ContactUs')}}>Contact Us</li>
               <li>Offers</li>
               <li  onClick={()=>{navigate('/support')}}>Support</li>
               <li>Careers</li>
