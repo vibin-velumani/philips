@@ -6,7 +6,12 @@ import { useState,useEffect } from 'react';
 import Home from './pages/Home';
 import { Product } from './pages/Product';
 import { Profile } from './pages/Profile';
-import { Admin } from './pages/Admin';
+// import Admin from './resources/Admin_Pages/Admin'
+import "bootstrap/dist/css/bootstrap.min.css";
+// import AdminLogin from './resources/Admin_Pages/AdminLogin';
+// import Home from './Resources/User_Pages/Home';
+// import AdminPanel from './resources/Admin_Pages/AdminPanel';
+// import AdminLoginRequired from './resources/Admin_Pages/AdminLoginRequired';
 import { useAuth } from './Authentication';
 import Authentication from './Authentication';
 import AuthRequired from './pages/AuthRequired';
@@ -27,10 +32,17 @@ function App() {
         <Route path='aboutus' element={<Location/>}/>
 
       </Route>
-      <Route path='*' element={<PageNotFound/>}/>
+      <Route path='login' element={<Login/>}/>
 
-      {/* <Route path='/admin' element={<Admin/>}></Route> */}
-    </Routes>
+          
+           {/* <Route path='/admin' element={<AdminLoginRequired><Admin/></AdminLoginRequired>}>
+                    <Route index element={<DashBoard/>}></Route>
+                    <Route path="setquestion" element={<QuestionSet/>}></Route>
+
+           </Route> */}
+           
+           {/* <Route path='admin/login' element={<AdminLogin/>}/> */}
+        </Routes>
     </Authentication>
     </BrowserRouter>
   );

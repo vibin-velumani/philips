@@ -1,11 +1,12 @@
 import React from 'react'
 import { Col,Card } from 'react-bootstrap'
+import saws from '../images/saws.jpg';
 function Item (props) {
   return (
     <>
      <Col>
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src={saws} alt="..."/> 
             <Card.Body>
               <Card.Title>Card title</Card.Title>
               <Card.Text>
@@ -15,7 +16,6 @@ function Item (props) {
               </Card.Text>
             </Card.Body>
           </Card>
-          
       </Col>
     </>
   )
