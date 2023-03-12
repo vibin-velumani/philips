@@ -60,7 +60,7 @@ const load=async()=>{
         setData({...data});
       }).catch((err)=>{console.log(err)})
 }
-useEffect((()=>{load()}),[])
+useEffect((()=>{load()}),[status])
 
 const update={
     onClick:(e,row,rowIndex)=>{
