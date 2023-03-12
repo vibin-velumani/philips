@@ -7,11 +7,12 @@ import { Col, Row, Container, FloatingLabel, Form, Button } from 'react-bootstra
 import Popup from 'reactjs-popup';
 import CustomButton from 'reactjs-popup'
 import style from '../Admin_css/UpdateProduct.module.css';
+import Update from '../Admin_components/Update';
 export default function UpdateProduct() {
 
-   
+const [row,setRow]=useState();
 
-const [status,setstatus]=useState('')
+const [status,setstatus]=useState(true)
 const [data,setData]=useState({
     columns: [
         {
@@ -44,9 +45,6 @@ const [data,setData]=useState({
         text:'Quantity',
         sort:true
 
-    },{
-        dataField:'update',
-        text:'Update'
     }
   ],
 rows: []
@@ -58,16 +56,6 @@ const load=async()=>{
         data.rows=(res.data.data.products);
         data.rows.forEach((item, i) => {
             item.id = i + 1;
-            item.update= <Popup trigger={<button className={style.btn}  > Update </button>} modal>
-                            <FloatingLabel controlId="topic" label="Product Name" className="mb-3">
-                                <Form.Control name="topic" type="text" placeholder="Title" value={status.name} onChange={(e) => { status.name=(e.target.value); setstatus({...status})}} />
-                            </FloatingLabel>
-             
-          
-
-
-
-          </Popup>;
           })
         setData({...data});
       }).catch((err)=>{console.log(err)})
@@ -76,14 +64,17 @@ useEffect((()=>{load()}),[])
 
 const update={
     onClick:(e,row,rowIndex)=>{
-        setstatus(row);
-        console.log(row);
+       setRow(row)
+        console.log(row._id);
+        setstatus(false);
+
     }
 }
 
   return (
 <>
-
+{status?
+(
        <Container fluid>
         <Row>
            <Col><h1>Products</h1></Col>
@@ -94,6 +85,9 @@ const update={
          </Col>
          </Row>
          </Container>
+  )
+ :(<Update row={row} setstatus={setstatus}/>)        
+}
 </>
     )
 }
