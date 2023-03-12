@@ -1,0 +1,10 @@
+.btn
+{
+    padding:10px;
+    border-style: none;
+    background-color: inherit;
+}
+.btn:hover
+{
+    color:red;
+}

@@ -1,0 +1,25 @@
+.formWrapper {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 1000ms;
+    -webkit-box-shadow: -4px 5px 37px -7px rgba(71,11,130,1);
+    -moz-box-shadow: -4px 5px 37px -7px rgba(71,11,130,1);
+    box-shadow: -4px 5px 37px -7px rgba(71,11,130,1);
+}
+
+
+.formWrapper:hover {
+    /* background-color: #e6e6e6; */
+    /* padding: 30px; */
+    transition: 1000ms;
+    -webkit-box-shadow: -4px 5px 128px -69px rgba(71,11,130,1);
+-moz-box-shadow: -4px 5px 128px -69px rgba(71,11,130,1);
+box-shadow: -4px 5px 128px -69px rgba(71,11,130,1);
+    /* transition: -webkit-box-shadow 2s, box-shadow 2s,-moz-box-shadow 2s; */
+}
+
+/* .formWrapper button
+{
+    background-color: ;
+} */
