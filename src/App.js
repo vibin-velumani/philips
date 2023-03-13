@@ -20,6 +20,8 @@ import DashBoard from './resources/Admin_Pages/DashBoard'
 import QuestionSet from './resources/Admin_Pages/QuestionSet'
 import AdminLogin from './resources/Admin_Pages/AdminLogin'
 import UpdateProduct from './resources/Admin_Pages/UpdateProduct';
+import Addstaff from './resources/Admin_Pages/Addstaff';
+import { Products } from './resources/components/Products';
 function App() {
   const auth=useAuth(); 
   return (
@@ -30,6 +32,7 @@ function App() {
         {/* <Route path='product' element={<Product />}/> */}
         <Route index element={<Home/>}></Route>
         <Route path='profile' element={<AuthRequired><Profile/></AuthRequired>}/>
+        <Route path='products' element={<Products/>}></Route>
         <Route path='login' element={<Login />}/>
         <Route path='aboutus' element={<Location/>}/>
         <Route path='ContactUs' element={<ContactUs/>}/> 
@@ -40,6 +43,8 @@ function App() {
                     <Route index element={<DashBoard/>}></Route>
                     <Route path="addproduct" element={<QuestionSet/>}></Route>
                     <Route path="updateproduct" element={<UpdateProduct/>}></Route>
+                    <Route path="admincontrol" element={<Addstaff/>}></Route>
+
 
                     
            </Route>

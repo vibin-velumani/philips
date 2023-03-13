@@ -5,6 +5,7 @@ import axiosPrivate from '../../Api/axios';
 import style from '../Admin_css/question.module.css'
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { useAuth } from '../../Authentication';
+import Convert2Base64 from '../../Convert2Base64';
 export default function QuestionSet() {
     const auth = useAuth();
     const [currentPage, setCurrentPage] = useState(1);
@@ -20,7 +21,7 @@ export default function QuestionSet() {
          e.preventDefault();
          try{
  
-             await axiosPrivate.post('product/addproduct',{name:ptitle,category,price,desc:description,quantity}).then((res)=>{
+             await axiosPrivate.post('product/addproduct',{name:ptitle,category,price,desc:description,quantity,preimg}).then((res)=>{
                 clean();toast.success("Product Added Successfully")
              }).catch((err)=>{console.log(err)});
 
@@ -98,9 +99,10 @@ const clean=()=>{
                         <Col sm={12} sx={12} md={4} lg={4} xl={4} xxl={4}>
                         <Form.Group controlId="formFile" className="mb-3">
                                 <Form.Label>Preview Image</Form.Label>
-                                <Form.Control type="file" onChange={(event) => {
-                                    let file = event.target.files[0]
-                                    setpreimg(URL.createObjectURL(file))
+                                <Form.Control type="file" onChange={async(event) => {
+                                    let file = event.target.files[0];
+                                    const base64=await Convert2Base64(file);
+                                    setpreimg(base64);
                                 }}  />
                             </Form.Group>
                         </Col>

@@ -6,15 +6,14 @@ function Item (props) {
     <>
      <Col>
           <Card>
-            <Card.Img variant="top" src={saws} alt="..."/> 
+            <Card.Img variant="top" src={props.data.preimg} alt="..."/> 
             <Card.Body>
-              <Card.Title>Card title</Card.Title>
+              <Card.Title>{props.data.name}</Card.Title>
               <Card.Text>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
+                {props.data.desc}
               </Card.Text>
             </Card.Body>
+            <Card.Footer>Price : {props.data.price} Quantity : {props.data.quantity}</Card.Footer>
           </Card>
       </Col>
     </>
