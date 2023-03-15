@@ -1,0 +1,11 @@
+.dFlex{
+    display:flex;
+}
+.outlet
+{
+    flex: 1 1 auto; display: flex; flex-flow: column; height: 100vh; overflow-y: scroll;
+}
+.fixedSideBar
+{
+    display: flex; height: 100%;
+}
