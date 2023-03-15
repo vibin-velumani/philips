@@ -1,0 +1,16 @@
+.contact-container{
+    background-color: white;
+    
+    -webkit-box-shadow: -4px 5px 37px -7px rgba(71,11,130,1);
+    -moz-box-shadow: -4px 5px 37px -7px rgba(71,11,130,1);
+    box-shadow: -4px 5px 37px -7px rgba(71,11,130,1);
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    font-size: 16px;
+
+    
+    
+        
+}
