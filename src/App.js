@@ -22,6 +22,7 @@ import AdminLogin from './resources/Admin_Pages/AdminLogin'
 import UpdateProduct from './resources/Admin_Pages/UpdateProduct';
 import Addstaff from './resources/Admin_Pages/Addstaff';
 import { Products } from './resources/components/Products';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const auth=useAuth(); 
   return (

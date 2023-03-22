@@ -4,9 +4,12 @@ import styled from "styled-components";
 import emailjs from "@emailjs/browser";
 import Header from "../resources/components/Header";
 import Footer from "../resources/components/Footer";
+import { useNavigate } from "react-router";
+import { ToastContainer, toast } from 'react-toastify';
  // import the CSS file
 
 const Contact = () => {
+  const navigate=useNavigate();
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -21,11 +24,12 @@ const Contact = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
-          console.log("message sent");
+          setTimeout(()=>{navigate('/aboutus');},5000);
+          toast.success("Message sent");
+          
         },
         (error) => {
-          console.log(error.text);
+          toast.error("Something went wrong");
         }
       );
   };
@@ -34,6 +38,7 @@ const Contact = () => {
     <>
       <Header />
       <center>
+        <ToastContainer/>
       <StyledContactForm>
       <form ref={form} onSubmit={sendEmail}>
         <label>Name</label>
