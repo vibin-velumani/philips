@@ -1,0 +1,122 @@
+
+.headcontainer{
+    padding: 1%;
+    border:none;
+  }
+  
+  .cardbody{
+    box-shadow:10px black ;
+    border-radius: 0px 15px 0px 15px;
+    background-color: rgba(71,11,130,1);
+    color: white;
+    text-align: center;
+    align-items: center;
+    border : none; 
+    font-size: large;
+  }
+  
+  .title{
+    font-size: x-large;
+  }
+  
+  
+  .subcontainer{
+      margin: 0vh 10vh;
+      width: 90%;
+      display: flex;
+      flex-wrap:wrap;
+      align-content: flex-start;
+      justify-content: center;
+      padding: 40px;
+  }
+  
+  .flip_card {
+      border-radius: 5px;
+      margin:25px;
+      box-shadow:20px black ;
+      display: inline;
+      width: 300px;
+      height: 400px;
+      perspective: 1000px;
+      color:black;
+      border: none;
+    }
+  
+    .flip_card_inner {
+      border-radius: 5px;
+      box-shadow:20px black ;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      text-align: center;
+      transition: transform 2s;
+      transform-style: preserve-3d;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    } 
+  
+    .flip_card:hover .flip_card_inner {
+      transform: rotateY(180deg);
+    }
+    
+    .flip_card_front, .flip_card_back {
+      box-shadow:20px black ;
+      border-radius: 5px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    
+    .flip_card_front {
+      padding:20px;
+      text-align: center;
+      background-color:white; 
+      color: black;
+      font-family: copperplate 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    
+    .flip_card_back {
+      padding:20px;
+      background-color:rgba(71,11,130,1);
+      color: white;
+      transform: rotateY(180deg);
+    }
+  
+    .flip_card_title{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80%;
+      font-size: xx-large;
+    }
+  
+    .flip_card_description{
+      align-items: center;
+      height: 80%;
+      font-size: large;
+    }
+  
+    .logoWrapper{
+      width: 100px;
+  }
+  .logoWrapper >img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+    @media screen and (max-width:700px) {
+      .headcontainer{
+        margin: 2vh 5vh 0vh 0vh;
+        width: 100%;
+        height: 50px;
+      }
+  
+      .subcontainer{
+        margin: 0vh 5vh 0vh 0vh;
+        width: 100%;
+        padding: 20px;
+      }
+    }

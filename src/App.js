@@ -50,6 +50,7 @@ function App() {
            </Route>
            <Route path='adminlogin' element={<AdminLogin/>}/>
            
+           {/* <Route path='admin/login' element={<AdminLogin/>}/> */}
         </Routes>
     </Authentication>
     </BrowserRouter>
