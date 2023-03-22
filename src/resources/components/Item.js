@@ -10,9 +10,7 @@ function Item (props) {
             <Card.Body>
               <Card.Title>{props.data.name}</Card.Title>
               <Card.Text>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
+                {props.data.desc}
               </Card.Text>
             </Card.Body>
             <Card.Footer>Price : {props.data.price} Quantity : {props.data.quantity}</Card.Footer>
