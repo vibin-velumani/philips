@@ -42,8 +42,6 @@ function App() {
                     <Route index element={<DashBoard/>}></Route>
                     <Route path="addproduct" element={<QuestionSet/>}></Route>
                     <Route path="updateproduct" element={<UpdateProduct/>}></Route>
-
-                    
            </Route>
            <Route path='adminlogin' element={<AdminLogin/>}/>
            
