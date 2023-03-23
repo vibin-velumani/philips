@@ -60,12 +60,12 @@ const clean=()=>{
                     
                     <Row  >
                         <Col sm={12} sx={12} md={6} lg={6} xl={6} xxl={6}>
-                            <FloatingLabel controlId="topic" label="Product Name" className="mb-3">
+                            <FloatingLabel controlId="topic" label="Product Name"  className="mb-3">
                                 <Form.Control name="topic" type="text" placeholder="Title" value={ptitle} onChange={(e) => { setptitle(e.target.value) }} />
                             </FloatingLabel>
                         </Col>
                         <Col sm={12} sx={12} md={6} lg={6} xl={6} xxl={6}>
-                            <FloatingLabel controlId="category" label="Category" className="mb-3">
+                            <FloatingLabel controlId="category" label="Category"  className="mb-3">
                                 <Form.Select aria-label="Floating label select Category" required value={category} onChange={(e) => { setCategory(e.target.value) }}>
                                     <option value="Electronics" selected>Electronics</option>
                                     <option value="Kitchen Ware">Kitchen Ware</option>
