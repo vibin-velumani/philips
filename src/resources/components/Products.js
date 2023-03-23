@@ -2,12 +2,10 @@ import React,{useEffect, useState} from 'react'
 import Item  from './Item'
 import { Container, Row,Col } from 'react-bootstrap';
 import axios from '../../Api/axios';
-import Header from './Header';
 import '../css/products.css'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-import Footer from './Footer';
 export const Products = () => {
   const [status,setStatus]=useState(false);
   const [data,setData]=useState();
@@ -48,7 +46,6 @@ load()
 
   return (
     <>
-    <Header/>
     <Container>
        <br/>
       <Row>
@@ -67,7 +64,7 @@ load()
               value={search}
               onChange={(e)=>{setSearch(e.target.value)}}
             />
-            <Button variant="secondary" onClick={searchFilter}>Search</Button>
+            <Button variant="success" onClick={searchFilter}>Search</Button>
           </Form>
           </Col>
           
@@ -93,11 +90,11 @@ load()
 
         <Col md={4} xs={10} sm={10}>
         {
-    (currentPage>0)?(<Button  onClick={()=>setCurrentPage(currentPage-1)}>Prev Page</Button>):(<></>)
+    (currentPage>0)?(<Button  onClick={()=>setCurrentPage(currentPage-1)} variant="success">Prev Page</Button>):(<></>)
 }
 {
   
-  (currentPage*4+4<fil.length)?(<Button onClick={()=>setCurrentPage(currentPage+1)}>Next Page</Button>):(<></>)
+  (currentPage*4+4<fil.length)?(<Button onClick={()=>setCurrentPage(currentPage+1)} variant="success">Next Page</Button>):(<></>)
 }
           </Col>
           
@@ -110,7 +107,6 @@ load()
 :(<h6>Loading ...</h6>)   
    }
    </Container>
-   <Footer/>
     </>
   )
 }

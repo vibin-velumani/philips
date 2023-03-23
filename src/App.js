@@ -4,8 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Login from './pages/Login';
 import { useState,useEffect } from 'react';
 import Home from './pages/Home';
-import { Product } from './pages/Product';
-import { Profile } from './pages/Profile';
+import Profile  from './pages/Profile';
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'reactjs-popup/dist/index.css';
 import { useAuth } from './Authentication';
@@ -30,7 +29,6 @@ function App() {
       <Route path='/' element={<Start />}>
         <Route index element={<Home/>}></Route>
         <Route path="products" element={<Products/>}></Route>
-        
         <Route path='profile' element={<AuthRequired><Profile/></AuthRequired>}/>
         <Route path='login' element={<Login />}/>
         <Route path='aboutus' element={<Location/>}/>

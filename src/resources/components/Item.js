@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col,Card } from 'react-bootstrap'
+import { Col,Card, Button } from 'react-bootstrap'
 import saws from '../images/saws.jpg';
 function Item (props) {
   return (
@@ -12,8 +12,12 @@ function Item (props) {
               <Card.Text>
                 {props.data.desc}
               </Card.Text>
+             <span style={{float:"left"}}> ₹{props.data.price} </span>  <span style={{float:"right"}}>Stocks Left : {props.data.quantity}</span>
+             <br/><br/>
+             
+             <Button variant='success' style={{float:"left"}}>Add to Cart</Button>
+             <Button variant='success' style={{float:"right"}}>Order Now</Button>
             </Card.Body>
-            <Card.Footer>Price : {props.data.price} Quantity : {props.data.quantity}</Card.Footer>
           </Card>
       </Col>
     </>

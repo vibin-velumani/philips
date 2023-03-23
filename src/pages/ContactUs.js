@@ -1,7 +1,5 @@
 import React from 'react'
 import '../pages/Home'
-import Header from "../resources/components/Header";
-import Footer from "../resources/components/Footer";
 import { Container } from "react-bootstrap";
 
 
@@ -10,7 +8,6 @@ import { Container } from "react-bootstrap";
 const ContactUs =()=>{
     return (
         <>
-        <Header/>
         <Container>
         <div>
             <h1> Contact form  </h1>
@@ -27,7 +24,6 @@ const ContactUs =()=>{
             </form>
         </div>
         </Container>
-        <Footer/>
         </>
         
     );
