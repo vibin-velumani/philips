@@ -20,6 +20,7 @@ import DashBoard from './resources/Admin_Pages/DashBoard'
 import QuestionSet from './resources/Admin_Pages/QuestionSet'
 import AdminLogin from './resources/Admin_Pages/AdminLogin'
 import UpdateProduct from './resources/Admin_Pages/UpdateProduct';
+import { Products } from './resources/components/Products';
 function App() {
   const auth=useAuth(); 
   return (
@@ -27,8 +28,9 @@ function App() {
     <Authentication>
     <Routes>
       <Route path='/' element={<Start />}>
-        {/* <Route path='product' element={<Product />}/> */}
         <Route index element={<Home/>}></Route>
+        <Route path="products" element={<Products/>}></Route>
+        
         <Route path='profile' element={<AuthRequired><Profile/></AuthRequired>}/>
         <Route path='login' element={<Login />}/>
         <Route path='aboutus' element={<Location/>}/>

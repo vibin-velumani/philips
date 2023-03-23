@@ -18,21 +18,8 @@ export default function Header() {
         <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
           <Nav>
             <Nav.Link onClick={()=>{navigate('/')}} className='space'>Home</Nav.Link>
-            <NavDropdown   title="Products" id="drop" >
-                   {/* id : "collasible-nav-dropdown" --- for collabse navbar */}
-              <NavDropdown.Item to='product'>Home Items</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Fans
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3" >Measuring tools</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">
-                Switches
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.5">
-              Kitchen Items
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#offers" className='space'>Offers</Nav.Link>
+            <Nav.Link href="products" className='space'>Products</Nav.Link>
+            <Nav.Link href="offers" className='space'>Offers</Nav.Link>
 
             <Nav.Link href="#pricing" className='space'>Cart</Nav.Link>
             <Nav.Link onClick={()=>{navigate('profile')}} className='space'>Profile</Nav.Link>
