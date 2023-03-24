@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <Navbar collapseOnSelect expand="lg"  className="head">
       <Container>
-        <Navbar.Brand onClick={()=>{navigate('/')}} className='brand' >CRYSTAL PARTS</Navbar.Brand>
+        <Navbar.Brand onClick={()=>{navigate('/')}} className='brand' >Murugan Agencies</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
           <Nav>
