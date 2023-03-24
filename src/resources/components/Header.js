@@ -21,7 +21,7 @@ export default function Header() {
             <Nav.Link href="products" className='space'>Products</Nav.Link>
             <Nav.Link href="offers" className='space'>Offers</Nav.Link>
 
-            <Nav.Link href="#pricing" className='space'>Cart</Nav.Link>
+            <Nav.Link href="/cart" className='space'>Cart</Nav.Link>
             <Nav.Link onClick={()=>{navigate('/profile')}} className='space'>Profile</Nav.Link>
              {(auth.user!==null)?<Nav.Link  className='space' onClick={auth.logout}>Logout</Nav.Link>
              :<Nav.Link onClick={()=>{navigate('/login')}} className='space'>Login</Nav.Link>}

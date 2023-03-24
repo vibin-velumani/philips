@@ -20,6 +20,7 @@ import QuestionSet from './resources/Admin_Pages/QuestionSet'
 import AdminLogin from './resources/Admin_Pages/AdminLogin'
 import UpdateProduct from './resources/Admin_Pages/UpdateProduct';
 import { Products } from './resources/components/Products';
+import Cart from './pages/Cart';
 function App() {
   const auth=useAuth(); 
   return (
@@ -30,7 +31,7 @@ function App() {
         <Route index element={<Home/>}></Route>
         <Route path="products" element={<Products/>}></Route>
         <Route path='profile' element={<AuthRequired><Profile/></AuthRequired>}/>
-        <Route path='login' element={<Login />}/>
+        <Route path='cart' element={<Cart />}/>
         <Route path='aboutus' element={<Location/>}/>
         <Route path='ContactUs' element={<ContactUs/>}/> 
       </Route>

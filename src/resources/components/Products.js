@@ -77,7 +77,7 @@ load()
     <>
     <Row xs={2} md={3} className="g-4">
     {
-        fil.slice(currentPage*4,currentPage*4+4).map((d,index)=>{
+        fil.slice(currentPage*12,currentPage*12+12).map((d,index)=>{
                   return  <><Item key={index} data={d}></Item></>
                            })
      }
@@ -94,7 +94,7 @@ load()
 }
 {
   
-  (currentPage*4+4<fil.length)?(<Button onClick={()=>setCurrentPage(currentPage+1)} variant="success">Next Page</Button>):(<></>)
+  (currentPage*12+12<fil.length)?(<Button onClick={()=>setCurrentPage(currentPage+1)} variant="success">Next Page</Button>):(<></>)
 }
           </Col>
           

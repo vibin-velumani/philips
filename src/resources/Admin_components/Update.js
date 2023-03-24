@@ -9,6 +9,7 @@ const [price,setprice]=useState()
 const [quantity,setquantity]=useState()
 const [desc,setdesc]=useState()
 const [id,setid]=useState()
+const [preimg,setpreimg]=useState();
 
 useEffect(()=>{
     setid(props.row._id);
@@ -17,6 +18,7 @@ useEffect(()=>{
     setcategory(props.row.category)
     setprice(props.row.price);
     setquantity(props.row.quantity)
+    setpreimg(props.row.preimg)
 },[])
 
 const clean=()=>{
@@ -24,8 +26,10 @@ const clean=()=>{
          setname('');
          setcategory('Electronics');
          setquantity('');
-         setdesc('')
+         setdesc('');
+         setpreimg('');
 }
+
     const clear=(e)=>{
          e.preventDefault();
          setprice('');
@@ -33,6 +37,7 @@ const clean=()=>{
          setcategory('Electronics');
          setquantity('');
          setdesc('')
+         setpreimg('');
     }
 
 
@@ -40,7 +45,7 @@ const clean=()=>{
         e.preventDefault();
         try{
 
-            await axiosPrivate.post('product/updateproduct',{name,category,price,desc,quantity,id}).then((res)=>{
+            await axiosPrivate.post('product/updateproduct',{name,category,price,desc,quantity,id,preimg}).then((res)=>{
                clean();toast.success("Product Updated Successfully");props.setstatus(true)
             }).catch((err)=>{console.log(err)});
 
@@ -64,10 +69,12 @@ const clean=()=>{
        console.log("Some Thing Went Wrong")
    }
 }
+console.log(preimg);    
 
   return (
   <>
    <Container>
+    <ToastContainer/>
                 <Container >
                     <Row>
                         <Col>
@@ -109,6 +116,17 @@ const clean=()=>{
                                 <Form.Control name="time" type="text" placeholder="Description"  value={desc} onChange={(e) => { setdesc(e.target.value) }} />
                             </FloatingLabel>
 
+                        </Col>
+                        
+                        <Col sm={12} sx={12} md={4} lg={4} xl={4} xxl={4}>
+                        <Form.Group controlId="formFile" className="mb-3">
+                                <Form.Label>Preview Image</Form.Label>
+                                <Form.Control type="file" onChange={(event) => {
+                                    let file = event.target.files[0]
+                                    setpreimg(URL.createObjectURL(file))
+                                }} />
+                                <img src={preimg} alt=".."/>
+                            </Form.Group>
                         </Col>
                     </Row>
                    

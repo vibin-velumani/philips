@@ -20,7 +20,7 @@ export default function QuestionSet() {
          e.preventDefault();
          try{
  
-             await axiosPrivate.post('product/addproduct',{name:ptitle,category,price,desc:description,quantity}).then((res)=>{
+             await axiosPrivate.post('product/addproduct',{name:ptitle,category,price,desc:description,quantity,preimg}).then((res)=>{
                 clean();toast.success("Product Added Successfully")
              }).catch((err)=>{console.log(err)});
 

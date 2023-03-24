@@ -5,7 +5,8 @@ export default function Authentication(props) {
     const [user,setUser]=useState(localStorage.getItem('details'));
     const login=(data)=>{
         setUser(data);
-        localStorage.setItem('details',data);
+        localStorage.setItem('details',JSON.stringify(data));
+        console.log(data);
     }
     const logout=async(e)=>{
       e.preventDefault();
