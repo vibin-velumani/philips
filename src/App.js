@@ -6,7 +6,7 @@ import { useState,useEffect } from 'react';
 import Home from './pages/Home';
 import Profile  from './pages/Profile';
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'reactjs-popup/dist/index.css';
+// import 'reactjs-popup/dist/index.css';
 import { useAuth } from './Authentication';
 import Authentication from './Authentication';
 import AuthRequired from './pages/AuthRequired';

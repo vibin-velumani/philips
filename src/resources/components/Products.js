@@ -78,7 +78,7 @@ load()
     <Row xs={2} md={3} className="g-4">
     {
         fil.slice(currentPage*12,currentPage*12+12).map((d,index)=>{
-                  return  <><Item key={index} data={d}></Item></>
+                  return <Item key={index} data={d}></Item>
                            })
      }
         </Row>

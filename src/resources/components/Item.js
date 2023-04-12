@@ -9,7 +9,6 @@ function Item (props) {
   async function addtocart(i){
    await axios.post('auth/addcart',{id:id,item:{productname:i.name,productId:i._id,price:i.price}}).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
   }
-  console.log(props.data.preimg);
   return (
     <>
      <Col>
