@@ -21,6 +21,7 @@ import AdminLogin from './resources/Admin_Pages/AdminLogin'
 import UpdateProduct from './resources/Admin_Pages/UpdateProduct';
 import { Products } from './resources/components/Products';
 import Cart from './pages/Cart';
+// import SummaryPage from './pages/Carts';
 function App() {
   const auth=useAuth(); 
   return (

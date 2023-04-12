@@ -20,6 +20,8 @@ const Product = ({ title, imageUrl,description }) => {
         <Card.Img
           variant="top"
           src={imageUrl}
+          height={200}
+                width={200}
           style={{ borderRadius: "20px 20px 20px 20px" }}
           onClick={handleClick}
         />

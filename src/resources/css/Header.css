@@ -1,84 +1,71 @@
-#drop
-{
-    color: white;
-    margin-right: 20px; 
-}
-.space
-{
-    color: white;
-    margin-right: 20px;
+.head {
+  background-color: #fff; 
+  padding: 5px 0; 
+  position: relative; 
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999; 
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
-.brand{
-    color: white;
-    font-size:xx-large;
-    margin-right: 50px;
+.head .navbar-brand {
+  font-size: 38px; 
+  color: #000; 
 }
-.brand:hover
-{
-   color:rgb(148, 148, 226);
-}
-.space:hover{
-    color:rgb(148, 148, 226);
-    cursor: pointer;
-}
-.head
-{
-    font-size: larger;
-    color: white;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #283446;
-}
-.guest
-{
-    color:blue;
-    text-decoration-line: underline;
-}
-/* ----------------------------------------------------------------------- */
 
-.App {
-    background-color: white;
-  }
-  
-  .Auth-form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-  }
-  
-  .Auth-form {
-    width: 420px;
-    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
-    padding-top: 30px;
-    padding-bottom: 20px;
-    border-radius: 8px;
-    background-color: white;
-  }
-  
-  .Auth-form-content {
-    padding-left: 12%;
-    padding-right: 12%;
-  }
-  
-  .Auth-form-title {
-    text-align: center;
-    margin-bottom: 1em;
-    font-size: 24px;
-    color: rgb(34, 34, 34);
-    font-weight: 800;
-  }
-  
-  label {
-    font-size: 14px;
-    font-weight: 600;
-    color: rgb(34, 34, 34);
-  }
+.head .navbar-brand:hover {
+  transform: scale(1.1);
+}
 
-  /* ------------------------------------------------------------- */
+.head .nav-link {
+  font-size: 18px; 
+  color: black !important; 
+  margin-right: 20px;
+  position: relative;
 
-  .guest{
-    text-decoration: none;
-  }
+}
+
+.head .nav-link:hover {
+  color: #007bff;
+}
+
+.head .logoWrapper img {
+  width: 100px; 
+}
+
+.head .nav-link.active {
+  color: #007bff; 
+  border-bottom: 2px solid #007bff; 
+}
+
+.head .navbar-collapse {
+  justify-content: flex-end; 
+}
+
+.head .nav-item {
+  margin-right: 15px;
+}
+
+.head .nav-item:last-child {
+  margin-right: 0;
+}
+
+.head .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #007bff;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.head .nav-link:hover::after,
+.head .nav-link.active::after {
+  visibility: visible;
+  transform: scaleX(1);
+}
+

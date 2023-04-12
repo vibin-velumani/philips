@@ -3,12 +3,12 @@ import '../css/Footer.css';
 import { Row,Col,Container } from 'react-bootstrap';
 import { SocialIcon } from 'react-social-icons';
 import {useNavigate} from 'react-router-dom';
-import logofoot from '../images/bg.png';
+import logofoot from '../images/MSTORE.png';
 export default function Footer() {
   const navigate = useNavigate();
   return(<>
   <Container className='footer-top'>
-      <span className='footer-top-item'><img src={logofoot} alt="..."/></span>
+      <span className='footer-top-item'><img src={logofoot} className="logofoot" alt="..."/></span>
   </Container>
   <Container fluid className='footer-main'>
       <Row className='foot-row'>

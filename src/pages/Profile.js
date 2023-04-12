@@ -237,8 +237,10 @@ e.preventDefault();
 
 
   return (
-    <> {user===undefined?(<h1>Some thing went wriong</h1>)
-   :( <Container>
+    <>
+    
+     {user===undefined?(<h1>Some thing went wriong</h1>)
+   :( <Container >
       
       <div class="container light-style flex-grow-1 container-p-y">
       <ToastContainer/>
