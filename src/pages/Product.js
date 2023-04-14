@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import { Card } from "react-bootstrap";
 import styled from "styled-components";
 import { bounce } from "react-animations";
+import "../resources/css/Products.css"; // import external CSS file
 
 const Bounce = styled.div`
   animation: 1s ${bounce};
@@ -16,13 +17,12 @@ const Product = ({ title, imageUrl,description }) => {
 
   return (
     <Bounce>
-       <Card style={{ width: "18rem", borderRadius: "20px" }}>
+      <Card className="product-card"> {/* add className */}
         <Card.Img
           variant="top"
           src={imageUrl}
           height={200}
-                width={200}
-          style={{ borderRadius: "20px 20px 20px 20px" }}
+          width={200}
           onClick={handleClick}
         />
       
