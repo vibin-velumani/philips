@@ -3,7 +3,7 @@ import '../css/Footer.css';
 import { Row,Col,Container } from 'react-bootstrap';
 import { SocialIcon } from 'react-social-icons';
 import {useNavigate} from 'react-router-dom';
-import logofoot from '../images/MSTORE.png';
+import logofoot from '../images/logo1.png';
 export default function Footer() {
   const navigate = useNavigate();
   return(<>
@@ -37,8 +37,9 @@ export default function Footer() {
                   <li>New Arrivals</li>
                   <li>Bulk Discount</li>
                   <li onClick={()=>{navigate('/aboutus')     }}>Location</li>
-                  <li>Privacy Policy</li>
-                  <li>Terms & Conditions</li>
+                  <li onClick={()=>{navigate('/PrivacyPolicy')     }}>PrivacyPolicy</li>
+                  <li onClick={()=>{navigate('/TermAndContions ')     }}>TermAndContions </li>
+                  
                   {/* &#38; */}
               </ul>
           </Col>

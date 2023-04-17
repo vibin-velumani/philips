@@ -1,0 +1,29 @@
+.policy {
+    background-color: #85FFBD;
+background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+
+    padding: 50px;
+    margin-bottom: 50px;
+  }
+  
+  .policy h2 {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0;
+  }
+  
+  .policy h3 {
+    color: #333;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .policy p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  

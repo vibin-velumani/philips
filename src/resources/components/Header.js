@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useAuth } from '../../Authentication';
 import { useNavigate } from 'react-router-dom';
-import logo from '../images/MSTORE.png'
+import logo from '../images/logo1.png'
 export default function Header() {
   const navigate=useNavigate();
   const auth=useAuth();

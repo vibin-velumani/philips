@@ -93,34 +93,35 @@ function Cart() {
         <div className="cart-total">Total: {totalRate}</div>
         {user.cart.map((item) => (
           <Card key={item._id} className="cart-card">
-            <Card.Body>
-              <Card.Title className="cart-card-title">{item.productname}</Card.Title>
-              <Card.Subtitle className="cart-card-subtitle">Price: {item.price}</Card.Subtitle>
-              <Card.Text className="cart-card-text">Quantity: {item.quantity}</Card.Text>
-              <div className="cart-buttons">
-                <Button
-                  variant="primary"
-                  className="mr-2"
-                  onClick={() => increaseQuantity(item._id)}
-                >
-                  +
-                </Button>
-                <Button
-                  variant="secondary"
-                  className="mr-2"
-                  onClick={() => decreaseQuantity(item._id)}
-                >
-                  -
-                </Button>
-                <Button
-                  variant="danger"
-                  onClick={() => removeItemFromCart(item._id)}
-                >
-                  Remove
-                </Button>
-              </div>
-            </Card.Body>
-          </Card>
+          <Card.Img variant="top" src={item.imageUrl} />
+          <Card.Body>
+            <Card.Title className="cart-card-title">{item.productname}</Card.Title>
+            <Card.Subtitle className="cart-card-subtitle">Price: {item.price}</Card.Subtitle>
+            <Card.Text className="cart-card-text">Quantity: {item.quantity}</Card.Text>
+            <div className="cart-buttons">
+              <Button
+                variant="primary"
+                className="mr-2"
+                onClick={() => increaseQuantity(item._id)}
+              >
+                +
+              </Button>
+              <Button
+                variant="secondary"
+                className="mr-2"
+                onClick={() => decreaseQuantity(item._id)}
+              >
+                -
+              </Button>
+              <Button
+                variant="danger"
+                onClick={() => removeItemFromCart(item._id)}
+              >
+                Remove
+              </Button>
+            </div>
+          </Card.Body>
+        </Card>
         ))}
         <Button variant="success" onClick={() => alert("Thank you for your purchase!")}>
           Buy Now

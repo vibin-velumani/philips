@@ -12,6 +12,8 @@ import Authentication from './Authentication';
 import AuthRequired from './pages/AuthRequired';
 import Start from './pages/Start';
 import Location from './pages/Loaction';
+import PrivacyPolicy from'./pages/PrivacyPolicy';
+import TermAndContions from'./pages/TermAndContions';
 import ContactUs from './pages/ContactUs';
 import AdminLoginRequired from './resources/Admin_Pages/AdminLoginRequired'
 import Admin from './resources/Admin_Pages/Admin'
@@ -35,6 +37,8 @@ function App() {
         <Route path='cart' element={<Cart />}/>
         <Route path='aboutus' element={<Location/>}/>
         <Route path='ContactUs' element={<ContactUs/>}/> 
+        <Route path='PrivacyPolicy' element={<PrivacyPolicy/>}/>
+        <Route path='TermAndContions' element={<TermAndContions/>}/>
       </Route>
       <Route path='login' element={<Login/>}/>
 
