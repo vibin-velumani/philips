@@ -150,16 +150,15 @@ function Cart() {
         ))}
         <div className="col-12 py-2 mt-4">
             <div className="d-flex justify-content-between align-items-baseline">
-              <Button onClick={()=>navigate('/products')}>
-              Continue To Shopping
-              </Button>
+            <Link to="/product" className="button">
+                Continue To Shopping
+              </Link>
               <div className="d-flex flex-column align-items-end">
                 <h4>SubTotal: ₹ {totalRate}</h4>
                 <p>Taxes and shipping calculated at checkout</p>
-                
-                <Button onClick={()=>navigate('/checkout')}>
-                    Checkout
-                </Button>
+                <Link to="/checkout" className="button">
+                  Checkout
+                </Link>
               </div>
             </div>
           </div>

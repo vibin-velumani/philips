@@ -1,19 +1,23 @@
+import { Button } from "react-bootstrap";
 import React from "react";
 import ReactStars from "react-rating-stars-component";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 const SpecialProduct = () => {
+  const navigate=useNavigate();
   return (
     <>
       <div className="col-6 mb-3">
         <div className="special-product-card">
           <div className="d-flex justify-content-between">
             <div>
-              <img src="images/watch.jpg" className="img-fluid" alt="watch" />
+              <img src="images/watch.jpg" className="img-fluid" alt="" />
             </div>
             <div className="special-product-content">
-              <h5 className="brand">Havels</h5>
+              <h5 className="brand">BOSCH</h5>
               <h6 className="title">
-                Samsung Galaxy Note10+ Mobile Phone; Sim...
+                
+                bosch electronics and spare parts ....
               </h6>
               <ReactStars
                 count={5}
@@ -23,7 +27,7 @@ const SpecialProduct = () => {
                 activeColor="#ffd700"
               />
               <p className="price">
-                <span className="red-p">$100</span> &nbsp; <strike>$200</strike>
+                <span className="red-p">₹100</span> &nbsp; <strike>₹200</strike>
               </p>
               <div className="discount-till d-flex align-items-center gap-10">
                 <p className="mb-0">
@@ -48,7 +52,8 @@ const SpecialProduct = () => {
                   ></div>
                 </div>
               </div>
-              <Link className="button">Add to Cart</Link>
+              <Button>Add to Cart</Button>
+              {/* <Link className="button">Add to Cart</Link> */}
             </div>
           </div>
         </div>
