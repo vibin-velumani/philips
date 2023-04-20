@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import { Card } from "react-bootstrap";
 import styled from "styled-components";
 import { bounce } from "react-animations";
-import "../resources/css/Products.css"; // import external CSS file
+import "../resources/css/products.css"; // import external CSS file
 
 const Bounce = styled.div`
   animation: 1s ${bounce};

@@ -13,10 +13,16 @@ function Cart() {
   const { _id: id } = JSON.parse(userString);
   const [totalRate, setTotalRate] = useState(0);
  
+//  useEffect(async()=>{
+//      await axios.post('/auth/updatecartvalue', { id: id, cart: updatedCart });
+
+//  },[totalRate])
+
+
   async function removeItemFromCart(productId) {
     const updatedCart = user.cart.filter((item) => item._id !== productId);
     try {
-      await axios.post('/auth/updatecart', { id: id, cart: updatedCart });
+      await axios.post('/auth/updatecart', { id: id, cart: updatedCart,total:totalRate });
       setTrigger(!trigger);
     } catch (err) {
       console.log(err);
@@ -26,7 +32,7 @@ function Cart() {
   async function clearCart() {
     if (user.cart.length <= 0) return;
     try {
-      await axios.post('/auth/cleancart', { id: id });
+      await axios.post('/auth/cleancart', { id: id,total:totalRate });
       setTrigger(!trigger);
       setUser({ ...user, cart: [] });
     } catch (err) {
@@ -35,6 +41,7 @@ function Cart() {
   }
 
   async function increaseQuantity(productId) {
+    console.log("inc")
     const updatedCart = user.cart.map((item) => {
       if (item._id === productId) {
         return { ...item, quantity: item.quantity + 1 };
@@ -42,7 +49,7 @@ function Cart() {
       return item;
     });
     try {
-      await axios.post('/auth/updatecart', { id: id, cart: updatedCart });
+      await axios.post('/auth/updatecart', { id: id, cart: updatedCart,total:totalRate });
       setTrigger(!trigger);
     } catch (err) {
       console.log(err);
@@ -50,26 +57,25 @@ function Cart() {
   }
 
   async function decreaseQuantity(productId) {
-    const updatedCart = user.cart.map((item) => {
-      if (item._id === productId) {
-        const newQuantity = item.quantity - 1;
-        if (newQuantity <= 0) {
-          return null;
-        }
-        return { ...item, quantity: newQuantity };
-      }
-      return item;
-    }).filter(item => item !== null);
-    try {
-      await axios.post('/auth/updatecart', { id: id, cart: updatedCart });
-      setTrigger(!trigger);
-    } catch (err) {
-      console.log(err);
-    }
+    console.log("dec")
+    // const updatedCart = user.cart.map((item) => {
+    //   if (item._id === productId) {
+    //     return { ...item, quantity: item.quantity - 1 };
+    //   }
+    //   return item;
+    // });
+
+    // try {
+    //   await axios.post('/auth/updatecart', { id: id, cart: updatedCart,total:totalRate }).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)});
+    //   setTrigger(!trigger);
+    // } catch (err) {
+    //   console.log(err);
+    // }
   }
 
   const load = async () => {
     try {
+      console.log("working")
       const res = await axios.post('/auth/userdetails', { id: id });
       setUser(res.data.details);
       let total = 0;
