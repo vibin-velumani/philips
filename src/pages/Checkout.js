@@ -1,10 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Link } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 import Container from "../resources/Single_page/components/Container";
+import axios from '../Api/axios';
+import { useAuth } from '../Authentication';
 
 export default function Checkout() {
+  const [shippingAddress,setshippingAddress]=useState();
+  const total=useState();
+  const user=useAuth().user;
+  const id=JSON.parse(user)._id;
+  console.log(id);
+  const load=async()=>{
+        await axios.post('/auth/checkoutdetails',{id}).then((res)=>{
+          console.log(res);
+          setshippingAddress(res.data.data.cart)
+        }).catch((err)=>{
+          console.log(err);
+        })
+  }
+  useEffect(()=>{
+load()
+  },[])
   return (
     <Container class1="checkout-wrapper py-5 home-wrapper-2">
     <div className="row">
@@ -42,8 +60,13 @@ export default function Checkout() {
           </nav>
           <h4 className="title total">Shipping Information</h4>
           <p className="user-details total">
-            Navdeep Dahiya (monud0232@gmail.com)
+            {/* Navdeep Dahiya (monud0232@gmail.com) */}
+            
+
           </p>
+
+
+
           <h4 className="mb-3">Delivery Address</h4>
           <form
             action=""

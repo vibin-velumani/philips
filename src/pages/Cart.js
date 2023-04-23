@@ -41,15 +41,22 @@ function Cart() {
   }
 
   async function increaseQuantity(productId) {
-    console.log("inc")
+    var tot2=0;
     const updatedCart = user.cart.map((item) => {
       if (item._id === productId) {
+        tot2+=item.price*(item.quantity+1);
+
         return { ...item, quantity: item.quantity + 1 };
+      }
+      else
+      {
+        tot2+=item.price*item.quantity;
       }
       return item;
     });
+    console.log(tot2);
     try {
-      await axios.post('/auth/updatecart', { id: id, cart: updatedCart,total:totalRate });
+      await axios.post('/auth/updatecart', { id: id, cart: updatedCart,total:tot2 });
       setTrigger(!trigger);
     } catch (err) {
       console.log(err);
@@ -57,20 +64,28 @@ function Cart() {
   }
 
   async function decreaseQuantity(productId) {
-    console.log("dec")
-    // const updatedCart = user.cart.map((item) => {
-    //   if (item._id === productId) {
-    //     return { ...item, quantity: item.quantity - 1 };
-    //   }
-    //   return item;
-    // });
+    // console.log("dec")
+    var tot=0;
+    const updatedCart = user.cart.map((item) => {
+      if (item._id === productId) {
+        tot+=item.price*(item.quantity-1);
+        return { ...item, quantity: item.quantity - 1 };
 
-    // try {
-    //   await axios.post('/auth/updatecart', { id: id, cart: updatedCart,total:totalRate }).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)});
-    //   setTrigger(!trigger);
-    // } catch (err) {
-    //   console.log(err);
-    // }
+      }
+      else
+      {
+        tot+=item.price*item.quantity;
+      }
+      return item;
+    });
+
+    try {
+      
+      await axios.post('/auth/updatecart', { id: id, cart: updatedCart,total:tot }).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)});
+      setTrigger(!trigger);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   const load = async () => {
@@ -178,16 +193,16 @@ function Cart() {
     </>
   );
 
-function decreaseQuantity(itemId) {
-  // Find the item in the cart by its ID
-  const itemIndex = user.cart.findIndex(item => item._id === itemId);
-  // If the item is found and its quantity is greater than 1, decrease the quantity by 1
-  if (itemIndex !== -1 && user.cart[itemIndex].quantity > 1) {
-    const updatedCart = [...user.cart];
-    updatedCart[itemIndex] = { ...updatedCart[itemIndex], quantity: updatedCart[itemIndex].quantity - 1 };
-    setUser({ ...user, cart: updatedCart });
-  }
-}
+// function decreaseQuantity(itemId) {
+//   // Find the item in the cart by its ID
+//   const itemIndex = user.cart.findIndex(item => item._id === itemId);
+//   // If the item is found and its quantity is greater than 1, decrease the quantity by 1
+//   if (itemIndex !== -1 && user.cart[itemIndex].quantity > 1) {
+//     const updatedCart = [...user.cart];
+//     updatedCart[itemIndex] = { ...updatedCart[itemIndex], quantity: updatedCart[itemIndex].quantity - 1 };
+//     setUser({ ...user, cart: updatedCart });
+//   }
+// }
 }
 
 export default Cart;
