@@ -12,7 +12,7 @@ export default function QuestionSet() {
     const [category, setCategory] = useState('Electronics');
     const [price, setPrice] = useState();
     const [quantity, setquantity] = useState();
-    const [preimg, setpreimg] = useState();
+    const [preimg, setpreimg] = useState('');
     const [description,setdescription]=useState('');
 
 
@@ -98,10 +98,8 @@ const clean=()=>{
                         <Col sm={12} sx={12} md={4} lg={4} xl={4} xxl={4}>
                         <Form.Group controlId="formFile" className="mb-3">
                                 <Form.Label>Preview Image</Form.Label>
-                                <Form.Control type="file" onChange={(event) => {
-                                    let file = event.target.files[0]
-                                    setpreimg(URL.createObjectURL(file))
-                                }}  />
+                                <Form.Control name="preview Image" type="text" placeholder="Enter Link"  value={preimg} onChange={(e) => { setpreimg(e.target.value) }} />
+
                             </Form.Group>
                         </Col>
                         <Col sm={12} sx={12} md={4} lg={4} xl={4} xxl={4}>
