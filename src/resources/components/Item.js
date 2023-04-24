@@ -4,7 +4,9 @@ import { Col,Card, Button } from 'react-bootstrap'
 import axios from '../../Api/axios';
 import { useAuth } from '../../Authentication';
 import saws from '../images/saws.jpg';
+import { useNavigate } from 'react-router-dom';
 function Item (props) {
+  const navigate=useNavigate();
   const id=JSON.parse(useAuth().user)._id;
   console.log(props.data.preimg)
   async function addtocart(i){
@@ -14,7 +16,7 @@ function Item (props) {
     <>
      <Col>
           <Card>
-            <Card.Img variant="top" src={props.data.preimg} alt="..."/> 
+            <Card.Img variant="top" src={props.data.preimg} alt="..." onClick={()=>navigate('/singleproduct')}/> 
             <Card.Body>
               <Card.Title>{props.data.name}</Card.Title>
               <Card.Text>
