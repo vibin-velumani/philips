@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import ReactStars from "react-rating-stars-component";
-import BreadCrumb from "../Single_page/components/BreadCrumb";
+import BreadCrumb from "./components/BreadCrumb";
 import Meta from "../Single_page/components/Meta";
-import ProductCard from "../Single_page/components/";
+// import ProductCard from "./components/ProductCard";
 import ReactImageZoom from "react-image-zoom";
-import Color from "../Single_page/components/";
+import Color from "../Single_page/components/Color";
 import { TbGitCompare } from "react-icons/tb";
 import { AiOutlineHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
-// import watch from "../images/watch.jpg";
-import Container from "../Single_page/components/";
+import watch from "../images/grass-trimmers.jpg";
+import Container from "./components/Container";
+
 const SingleProduct = () => {
   const props = {
     width: 594,
     height: 600,
     zoomWidth: 600,
-
     img: "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg",
   };
 
@@ -33,13 +33,13 @@ const SingleProduct = () => {
   return (
     <>
       <Meta title={"Product Name"} />
-      <BreadCrumb title="Product Name" />
+      {/* <BreadCrumb title="Product Name" /> */}
       <Container class1="main-product-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-6">
             <div className="main-product-image">
               <div>
-                <ReactImageZoom {...props} />
+                <ReactImageZoom {...props} />                
               </div>
             </div>
             <div className="other-product-images d-flex flex-wrap gap-15">
@@ -302,7 +302,7 @@ const SingleProduct = () => {
           </div>
         </div>
         <div className="row">
-          <ProductCard />
+          {/* <ProductCard /> */}
         </div>
       </Container>
 

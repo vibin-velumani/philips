@@ -25,6 +25,7 @@ import { Products } from './resources/components/Products';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import Offers from './pages/Offers';
+import SingleProduct from './resources/Single_page/SingleProduct';
 // import SummaryPage from './pages/Carts';
 function App() {
   const auth=useAuth(); 
@@ -39,11 +40,12 @@ function App() {
         <Route path='cart' element={<Cart />}/>
         <Route path='checkout' element={<Checkout/>}/>
         <Route path='offers' element={<Offers/>}/>
-
         <Route path='aboutus' element={<Location/>}/>
         <Route path='ContactUs' element={<ContactUs/>}/> 
         <Route path='PrivacyPolicy' element={<PrivacyPolicy/>}/>
         <Route path='TermAndContions' element={<TermAndContions/>}/>
+        <Route path='singleproduct' element={<SingleProduct/>}/>
+        
       </Route>
       <Route path='login' element={<Login/>}/>
 
