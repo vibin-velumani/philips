@@ -93,6 +93,7 @@ function Cart() {
       console.log("working")
       const res = await axios.post('/auth/userdetails', { id: id });
       setUser(res.data.details);
+      console.log(res.data.details);
       let total = 0;
       res.data.details.cart.forEach(item => {
         total += item.price * item.quantity;
@@ -127,7 +128,7 @@ function Cart() {
            <div className="cart-data py-3 mb-2 d-flex justify-content-between align-items-center" key={item._id}>
            <div className="cart-col-1 gap-15 d-flex align-items-center">
              <div className="w-25">
-               <img src={item.imageUrl} className="img-fluid" alt="product image" />
+               <img src={item.preimg} className="img-fluid" alt="product image" />
              </div>
              <div className="w-75">
                <p>{item.productname}</p>

@@ -8,7 +8,7 @@ function Item (props) {
   const id=JSON.parse(useAuth().user)._id;
   console.log(props.data.preimg)
   async function addtocart(i){
-   await axios.post('auth/addcart',{id:id,item:{productname:i.name,productId:i._id,price:i.price}}).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
+   await axios.post('auth/addcart',{id:id,item:{productname:i.name,productId:i._id,price:i.price,preimg:i.preimg}}).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
   }
   return (
     <>
