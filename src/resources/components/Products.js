@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import axios from '../../Api/axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import '../css/products.css'; // Import the CSS file
+// import '../css/products.css'; // Import the CSS file
 
 export const Products = () => {
   const [status, setStatus] = useState(false);
