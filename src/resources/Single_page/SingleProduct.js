@@ -7,18 +7,36 @@ import ReactImageZoom from "react-image-zoom";
 import Color from "../Single_page/components/Color";
 import { TbGitCompare } from "react-icons/tb";
 import { AiOutlineHeart } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import watch from "../images/grass-trimmers.jpg";
 import Container from "./components/Container";
-
+import { useEffect } from "react";
+import axios from "../../Api/axios";
+import { useAuth } from "../../Authentication";
 const SingleProduct = () => {
+
+  const [pid,setpid]=useState('');
+  const [params]=useSearchParams()
+  const [data,setdata]=useState();
+  const [flag,setflag]=useState(false);
+ const load=async(req,res)=>{
+  await axios.post("product/getproductdetails",{pid:params.get("product")}).then((res)=>{console.log(res.data.data);setdata(res.data.data);setflag(true)}).catch((err)=>{console.log(err)});
+ }
+
+
+  useEffect(()=>{
+  setpid(params.get("product"));
+  load()
+  },[])
+
+
   const props = {
     width: 594,
     height: 600,
     zoomWidth: 600,
-    img: "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg",
+    img: flag?data.preimg:null,
   };
-
+  const id=JSON.parse(useAuth().user)._id;
   const [orderedProduct, setorderedProduct] = useState(true);
   const copyToClipboard = (text) => {
     console.log("text", text);
@@ -29,9 +47,17 @@ const SingleProduct = () => {
     document.execCommand("copy");
     textField.remove();
   };
+
+  async function addtocart(){
+    await axios.post('auth/addcart',{id:id,item:{productname:data.name,productId:data._id,price:data.price,preimg:data.preimg}}).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
+   }
+
   const closeModal = () => {};
   return (
     <>
+      {flag ?
+      (
+        <>
       <Meta title={"Product Name"} />
       {/* <BreadCrumb title="Product Name" /> */}
       <Container class1="main-product-wrapper py-5 home-wrapper-2">
@@ -77,11 +103,11 @@ const SingleProduct = () => {
             <div className="main-product-details">
               <div className="border-bottom">
                 <h3 className="title">
-                  Kids Headphones Bulk 10 Pack Multi Colored For Students
+                 {data.name}
                 </h3>
               </div>
               <div className="border-bottom py-3">
-                <p className="price">$ 100</p>
+                <p className="price">₹ {data.price}</p>
                 <div className="d-flex align-items-center gap-10">
                   <ReactStars
                     count={5}
@@ -117,27 +143,6 @@ const SingleProduct = () => {
                   <h3 className="product-heading">Availablity :</h3>
                   <p className="product-data">In Stock</p>
                 </div>
-                <div className="d-flex gap-10 flex-column mt-2 mb-3">
-                  <h3 className="product-heading">Size :</h3>
-                  <div className="d-flex flex-wrap gap-15">
-                    <span className="badge border border-1 bg-white text-dark border-secondary">
-                      S
-                    </span>
-                    <span className="badge border border-1 bg-white text-dark border-secondary">
-                      M
-                    </span>
-                    <span className="badge border border-1 bg-white text-dark border-secondary">
-                      XL
-                    </span>
-                    <span className="badge border border-1 bg-white text-dark border-secondary">
-                      XXL
-                    </span>
-                  </div>
-                </div>
-                <div className="d-flex gap-10 flex-column mt-2 mb-3">
-                  <h3 className="product-heading">Color :</h3>
-                  <Color />
-                </div>
                 <div className="d-flex align-items-center gap-15 flex-row mt-2 mb-3">
                   <h3 className="product-heading">Quantity :</h3>
                   <div className="">
@@ -157,6 +162,7 @@ const SingleProduct = () => {
                       data-bs-toggle="modal"
                       data-bs-target="#staticBackdrop"
                       type="button"
+                      onClick={addtocart}
                     >
                       Add to Cart
                     </button>
@@ -360,6 +366,7 @@ const SingleProduct = () => {
           </div>
         </div>
       </div>
+      </>):(<p>loading...</p>)}
     </>
   );
 };
