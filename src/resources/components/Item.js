@@ -6,6 +6,7 @@ import { useAuth } from '../../Authentication';
 import saws from '../images/saws.jpg';
 function Item (props) {
   const id=JSON.parse(useAuth().user)._id;
+  console.log(props.data.preimg)
   async function addtocart(i){
    await axios.post('auth/addcart',{id:id,item:{productname:i.name,productId:i._id,price:i.price}}).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
   }
