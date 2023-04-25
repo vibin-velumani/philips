@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 function Item (props) {
   const navigate=useNavigate();
   const id=JSON.parse(useAuth().user)._id;
-  console.log(props.data.preimg)
+  console.log(props.data)
   async function addtocart(i){
    await axios.post('auth/addcart',{id:id,item:{productname:i.name,productId:i._id,price:i.price,preimg:i.preimg}}).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
   }
@@ -16,7 +16,7 @@ function Item (props) {
     <>
      <Col>
           <Card>
-            <Card.Img variant="top" src={props.data.preimg} alt="..." onClick={()=>navigate('/singleproduct')}/> 
+            <Card.Img variant="top" src={props.data.preimg} alt="..." onClick={()=>navigate(`/singleproduct?product=${props.data._id}`)}/> 
             <Card.Body>
               <Card.Title>{props.data.name}</Card.Title>
               <Card.Text>
