@@ -75,12 +75,6 @@ const updateInfo=async(e)=>
 
 
 
-
-
-
-
-
-
   function display(ch)
   {
     if(ch===1)

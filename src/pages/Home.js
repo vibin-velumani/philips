@@ -104,7 +104,7 @@ export default function HomePage() {
                 <Card.Title>Product 4</Card.Title>
                 <Card.Text>
                   The Bosch grass trimmer is a lightweight and efficient tool designed for trimming grass and weeds in small to medium-sized gardens.
-                  It features a powerful motor and a telescopic handle that makes it easy to adjust the length to suit your needs.
+                  It features a powerful motor and a telescopic handle that  it easy to adjust the length to suit your needs.
                 </Card.Text>
                 <Button variant="primary" onClick={() => navigate('/products/4')}>
                   Learn more

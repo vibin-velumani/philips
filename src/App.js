@@ -21,11 +21,13 @@ import DashBoard from './resources/Admin_Pages/DashBoard'
 import QuestionSet from './resources/Admin_Pages/QuestionSet'
 import AdminLogin from './resources/Admin_Pages/AdminLogin'
 import UpdateProduct from './resources/Admin_Pages/UpdateProduct';
+import AddOffers from './resources/Admin_Pages/AddOffers';
 import { Products } from './resources/components/Products';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import Offers from './pages/Offers';
 import SingleProduct from './resources/Single_page/SingleProduct';
+import AddStaff from './resources/Admin_Pages/AddStaff'
 // import SummaryPage from './pages/Carts';
 function App() {
   const auth=useAuth(); 
@@ -53,6 +55,8 @@ function App() {
                     <Route index element={<DashBoard/>}></Route>
                     <Route path="addproduct" element={<QuestionSet/>}></Route>
                     <Route path="updateproduct" element={<UpdateProduct/>}></Route>
+                    <Route path="addoffers" element={<AddOffers/>}></Route>
+                    <Route path="addstaff" element={<AddStaff/>}></Route>
            </Route>
            <Route path='adminlogin' element={<AdminLogin/>}/>
            

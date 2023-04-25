@@ -33,7 +33,7 @@ export default function QuestionSet() {
 
 
 const clean=()=>{
-    setPrice('');
+         setPrice('');
          setptitle('');
          setCategory('Electronics');
          setquantity('');
