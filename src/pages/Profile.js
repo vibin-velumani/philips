@@ -9,6 +9,10 @@ import { ToastContainer,toast } from 'react-toastify';
 
 
 function Profile() {
+
+const[orders,setorders]=useState()
+
+
   const [user,setUser]=useState();
   const ids=JSON.parse(useAuth().user)._id;
   const [name,setName]=useState();
@@ -52,7 +56,10 @@ const updateInfo=async(e)=>
   const load=async()=>{
     console.log(ids);
 
-    await axios.post('/auth/userdetails',{id:ids}).then((res)=>{setUser(res.data.details);setName(res.data.details.name);setEmail(res.data.details.email);setemailvflag(res.data.details.verified);
+    await axios.post('/auth/userdetails',{id:ids}).then((res)=>{
+      console.log(res.data)
+      setorders(res.data.details.orders);
+      setUser(res.data.details);setName(res.data.details.name);setEmail(res.data.details.email);setemailvflag(res.data.details.verified);
     setAddress(res.data.details.address);
     setPh(res.data.details.ph);
     setdob(res.data.details.DOB);
@@ -169,20 +176,25 @@ const updateInfo=async(e)=>
 <>
         <h2>Order History</h2>
         <Row>
-          {user.orders.map(order => (
-            <Col sm={6} md={4} lg={3} key={order.id}>
-              <Card>
-                <Card.Body>
-                  <Card.Title>Order ID: {order.product}</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">Order Total: ${order.total}</Card.Subtitle>
-                  <Card.Text>
-                    Order Date: {order.purchaseDate }
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-          {user.orders.length===0?"No Orders Yet":""}
+        {orders.map((order) => (
+  <Col sm={6} md={4} lg={3} key={order.id}>
+    <Card className="shadow-sm mb-4">
+      <Card.Body>
+        <Card.Title className="fw-bold mb-3">
+          Order Status: {order.orderstatus}
+        </Card.Title>
+        <Card.Subtitle className="mb-2 text-muted fs-5">
+          Order Total: ₹{order.cartValue}
+        </Card.Subtitle>
+        <Card.Text className="fw-light fs-6 mb-3">
+          Order Date: {order.purchaseDate}
+        </Card.Text>
+        <button className="btn btn-primary">View Details</button>
+      </Card.Body>
+    </Card>
+  </Col>
+))}
+          {orders.length===0?"No Orders Yet":""}
         </Row>
         </>);
     }
