@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 function Item (props) {
   const navigate=useNavigate();
   const id=JSON.parse(useAuth().user)._id;
-  console.log(props.data)
+  console.log(id)
   async function addtocart(i){
    await axios.post('auth/addcart',{id:id,item:{productname:i.name,productId:i._id,price:i.price,preimg:i.preimg}}).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
   }
