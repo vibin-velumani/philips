@@ -38,8 +38,8 @@ export default function Sidebar() {
               <NavLink exact to="addstaff" activeClassName="activeClicked">
                 <CDBSidebarMenuItem icon="user">Add Staff</CDBSidebarMenuItem>
               </NavLink>
-              <NavLink exact to="analytics" activeClassName="activeClicked">
-                <CDBSidebarMenuItem icon="chart-line">Analytics</CDBSidebarMenuItem>
+              <NavLink exact to="orders" activeClassName="activeClicked">
+                <CDBSidebarMenuItem icon="chart-line">Orders</CDBSidebarMenuItem>
               </NavLink>
   
               <NavLink to="/admin" onClick={auth.logout}   activeClassName="activeClicked">

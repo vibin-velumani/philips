@@ -28,6 +28,7 @@ import Checkout from './pages/Checkout';
 import Offers from './pages/Offers';
 import SingleProduct from './resources/Single_page/SingleProduct';
 import AddStaff from './resources/Admin_Pages/AddStaff'
+import AdminOrders from './resources/Admin_Pages/AdminOrders';
 // import SummaryPage from './pages/Carts';
 function App() {
   const auth=useAuth(); 
@@ -57,6 +58,8 @@ function App() {
                     <Route path="updateproduct" element={<UpdateProduct/>}></Route>
                     {/* <Route path="addoffers" element={<AddOffers/>}></Route> */}
                     <Route path="addstaff" element={<AddStaff/>}></Route>
+                    <Route path="orders" element={<AdminOrders/>}></Route>
+
            </Route>
            <Route path='adminlogin' element={<AdminLogin/>}/>
            
