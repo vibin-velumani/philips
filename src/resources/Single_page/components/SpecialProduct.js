@@ -3,10 +3,16 @@ import React from "react";
 import ReactStars from "react-rating-stars-component";
 import { Link, useNavigate } from "react-router-dom";
 import { Card } from "react-bootstrap";
+import axios from "../../../Api/axios";
+import { useAuth } from "../../../Authentication";
 
 const SpecialProduct = ({data}) => {
   console.log(data);
+  const id=JSON.parse(useAuth().user)._id;
   const navigate=useNavigate();
+  async function addtocart(){
+    await axios.post('auth/addcart',{id:id,item:{productname:data.name,productId:data._id,price:data.price,preimg:data.preimg}}).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
+   }
   return (
     <>
       <div className="col-6 mb-3">
@@ -55,7 +61,7 @@ const SpecialProduct = ({data}) => {
                 </div>
 
               </div>
-              <Button>Add to Cart</Button>
+              <Button onClick={addtocart}>Add to Cart</Button>
               {/* <Link className="button">Add to Cart</Link> */}
             </div>
             </div>

@@ -176,9 +176,9 @@ console.log(preimg);
                     <Col sm={12} sx={12} md={4} lg={4} xl={4} xxl={4}>
                         <Form.Group controlId="formFile" className="mb-3">
                                 <Form.Label>Preview Image</Form.Label>
-                                <Form.Control type="file" onChange={(event) => {
-                                    let file = event.target.files[0]
-                                    setpreimg(URL.createObjectURL(file))
+                                <Form.Control type="text" value={preimg} onChange={(event) => {
+                    
+                                    setpreimg(event.target.value)
                                 }} />
                                 <img src={preimg} alt=".."/>
                             </Form.Group>

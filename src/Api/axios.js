@@ -4,5 +4,5 @@ import React from 'react'
 // https://crystal-parts-server.onrender.com
 
 export default axios.create({
-    baseURL:"http://localhost:9000/"
+    baseURL:"https://crystal-parts-server.onrender.com"
 })

@@ -12,6 +12,9 @@ function Item (props) {
   async function addtocart(i){
    await axios.post('auth/addcart',{id:id,item:{productname:i.name,productId:i._id,price:i.price,preimg:i.preimg}}).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
   }
+  async function ordernow(i){
+    await axios.post('auth/addcart',{id:id,item:{productname:i.name,productId:i._id,price:i.price,preimg:i.preimg}}).then((res)=>{navigate('/cart')}).catch((err)=>{console.log(err);navigate('/cart')})
+   }
   return (
     <>
      <Col>
@@ -27,7 +30,7 @@ function Item (props) {
              <br/><br/>
              
              <Button variant='success' style={{float:"left"}} onClick={()=>addtocart(props.data)}>Add to Cart</Button>
-             <Button variant='success' style={{float:"right"}}>Order Now</Button>
+             <Button variant='success' style={{float:"right"}} onClick={()=>ordernow(props.data)}>Order Now</Button>
             </Card.Body>
           </Card>
       </Col>

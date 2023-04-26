@@ -29,6 +29,8 @@ const [data,setData]=useState({
     {
         dataField: 'cartValue',
         text:'Amount',
+        sort:true
+
     }, 
     {
         dataField: 'paymenttype',
@@ -39,6 +41,12 @@ const [data,setData]=useState({
     {
         dataField: 'paymentstatus',
         text:'Payment',
+    }
+    ,
+    {
+        dataField: 'orderstatus',
+        text:'Order',
+        sort:true
     }
   ],
 rows: []
