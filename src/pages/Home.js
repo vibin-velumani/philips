@@ -21,8 +21,9 @@ export default function HomePage() {
 
   return (
     <>
+    <Container fluid>
       <Carousel>
-        <Carousel.Item style={{ width: '1550px', height: '450px' }}>
+        <Carousel.Item style={{  height: '450px' }}>
           <img
             className="d-block w-100"
             src={banner1}
@@ -30,7 +31,7 @@ export default function HomePage() {
           />
         </Carousel.Item>
 
-        <Carousel.Item style={{ width: '1550px', height: '450px' }}>
+        <Carousel.Item style={{  height: '450px' }}>
           <img
             className="d-block w-100"
             src={banner2}
@@ -38,7 +39,7 @@ export default function HomePage() {
           />
         </Carousel.Item>
 
-        <Carousel.Item style={{ width: '1550px', height: '450px' }}>
+        <Carousel.Item style={{ height: '450px' }}>
           <img
             className="d-block w-100"
             src={banner3}
@@ -47,7 +48,7 @@ export default function HomePage() {
         </Carousel.Item>
 
       </Carousel>
-      
+      </Container>
       <Container className="mt-5">
         <h2>Featured Products</h2>
         <Row>

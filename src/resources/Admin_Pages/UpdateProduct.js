@@ -45,6 +45,12 @@ const [data,setData]=useState({
         text:'Quantity',
         sort:true
 
+    },
+    {
+        dataField: 'offer',
+        text:'Offer',
+        sort:true
+
     }
   ],
 rows: []
@@ -65,7 +71,7 @@ useEffect((()=>{load()}),[status])
 const update={
     onClick:(e,row,rowIndex)=>{
        setRow(row)
-        console.log(row._id);
+        console.log(row);
         setstatus(false);
 
     }

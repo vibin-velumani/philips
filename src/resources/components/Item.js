@@ -22,7 +22,8 @@ function Item (props) {
               <Card.Text>
                 {props.data.desc}
               </Card.Text>
-             <span style={{float:"left"}}> ₹{props.data.price} </span>  <span style={{float:"right"}}>Stocks Left : {props.data.quantity}</span>
+             <span style={{float:"left"}}> {props.data.offer?<><span className="red-p">₹{props.data.price-props.data.price*(props.data.offerper/100)}</span> &nbsp; <strike>₹{props.data.price}</strike></>:<p>₹{props.data.price}</p>
+} </span>  <span style={{float:"right"}}>Stocks Left : {props.data.quantity}</span>
              <br/><br/>
              
              <Button variant='success' style={{float:"left"}} onClick={()=>addtocart(props.data)}>Add to Cart</Button>

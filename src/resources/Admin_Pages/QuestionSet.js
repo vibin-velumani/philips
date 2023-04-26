@@ -5,6 +5,8 @@ import axiosPrivate from '../../Api/axios';
 import style from '../Admin_css/question.module.css'
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { useAuth } from '../../Authentication';
+import TimePicker from 'react-bootstrap-time-picker';
+
 export default function QuestionSet() {
     const auth = useAuth();
     const [currentPage, setCurrentPage] = useState(1);
@@ -14,13 +16,17 @@ export default function QuestionSet() {
     const [quantity, setquantity] = useState();
     const [preimg, setpreimg] = useState('');
     const [description,setdescription]=useState('');
-
+    const [offer,setoffer]=useState("false");
+    const [offerdd,setofferdd]=useState();
+    const [offerper,setofferper]=useState();
+    const [offerduetime,setofferduetime]=useState();
+    
 
    const submit=async(e)=>{
          e.preventDefault();
          try{
  
-             await axiosPrivate.post('product/addproduct',{name:ptitle,category,price,desc:description,quantity,preimg}).then((res)=>{
+             await axiosPrivate.post('product/addproduct',{name:ptitle,category,price,desc:description,quantity,preimg,offer:offer=="true"?true:false,offerdd,offerper,offerduetime}).then((res)=>{
                 clean();toast.success("Product Added Successfully")
              }).catch((err)=>{console.log(err)});
 
@@ -33,6 +39,7 @@ export default function QuestionSet() {
 
 
 const clean=()=>{
+    setpreimg('')
          setPrice('');
          setptitle('');
          setCategory('Electronics');
@@ -94,6 +101,12 @@ const clean=()=>{
                     </Row>
                     <Row>
                        <Col sm={12} sx={12} md={2} lg={2} xl={2} xxl={2}>
+                       <FloatingLabel controlId="offer" label="offer" className="mb-3">
+                                <Form.Select aria-label="Floating label select Category" required value={offer} onChange={(e) => {  setoffer(e.target.value) }}>
+                                    <option value="false" selected>No</option>
+                                    <option value="true">Yes</option>
+                                </Form.Select>
+                            </FloatingLabel>
                         </Col>
                         <Col sm={12} sx={12} md={4} lg={4} xl={4} xxl={4}>
                         <Form.Group controlId="formFile" className="mb-3">
@@ -114,6 +127,33 @@ const clean=()=>{
                         <Col sm={12} sx={12} md={2} lg={2} xl={2} xxl={2}>
                         </Col>
                     </Row>
+                    { offer=="true" &&
+                    <Row  >
+                    <Col sm={12} sx={12} md={4} lg={4} xl={4} xxl={4}>
+                          <FloatingLabel controlId="floatingInput" label="Offer Percentage" className="mb-3">
+                            <Form.Control name="offerper" type="number" placeholder="Offer "  value={offerper} onChange={(e) => { setofferper(e.target.value) }} />
+                          </FloatingLabel>
+                        </Col>
+                        <Col sm={12} sx={12} md={4} lg={4} xl={4} xxl={4}>
+                          <FloatingLabel controlId="floatingInput" label="Due Date" className="mb-3">
+                            <Form.Control name="offerdue" type="date" placeholder="OfferDueDate"  value={offerdd} onChange={(e) => { setofferdd(e.target.value) }} />
+                          </FloatingLabel>
+                        </Col>
+                        <Col sm={12} sx={12} md={4} lg={4} xl={4} xxl={4}>
+                        <FloatingLabel controlId="floatingInput" label="Due Time" className="mb-3">
+                            <TimePicker
+                            start="00:00"
+                            end="23:59"
+                            step={30}
+                            value={offerduetime}
+                            onChange={(time) => setofferduetime(time)}
+                            format={24}
+                            showLeadingZeros={true}
+                            />
+                        </FloatingLabel>
+                        </Col>
+                    </Row>
+                    }
        <br></br><br></br>
                     <Row>
                        <Col sm={12} sx={12} md={3} lg={3} xl={3} xxl={3}>

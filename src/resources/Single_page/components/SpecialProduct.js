@@ -2,8 +2,10 @@ import { Button } from "react-bootstrap";
 import React from "react";
 import ReactStars from "react-rating-stars-component";
 import { Link, useNavigate } from "react-router-dom";
+import { Card } from "react-bootstrap";
 
-const SpecialProduct = () => {
+const SpecialProduct = ({data}) => {
+  console.log(data);
   const navigate=useNavigate();
   return (
     <>
@@ -11,13 +13,13 @@ const SpecialProduct = () => {
         <div className="special-product-card">
           <div className="d-flex justify-content-between">
             <div>
-              <img src="images/watch.jpg" className="img-fluid" alt="" />
+              <img src={data.preimg} className="img-fluid" alt="" onClick={()=>navigate(`/singleproduct?product=${data._id}`)}/>
             </div>
-            <div className="special-product-content">
+            <div className="special-product-content" >
+              <div style={{marginLeft:10}}>
               <h5 className="brand">BOSCH</h5>
               <h6 className="title">
-                
-                bosch electronics and spare parts ....
+                {data.name}
               </h6>
               <ReactStars
                 count={5}
@@ -27,7 +29,7 @@ const SpecialProduct = () => {
                 activeColor="#ffd700"
               />
               <p className="price">
-                <span className="red-p">₹100</span> &nbsp; <strike>₹200</strike>
+                <span className="red-p">₹{data.price-data.price*(data.offerper/100)}</span> &nbsp; <strike>₹{data.price}</strike>
               </p>
               <div className="discount-till d-flex align-items-center gap-10">
                 <p className="mb-0">
@@ -40,7 +42,7 @@ const SpecialProduct = () => {
                 </div>
               </div>
               <div className="prod-count my-3">
-                <p>Products: 5</p>
+                <p>Products: {data.quantity}</p>
                 <div className="progress">
                   <div
                     className="progress-bar"
@@ -51,9 +53,11 @@ const SpecialProduct = () => {
                     aria-valuemax="100"
                   ></div>
                 </div>
+
               </div>
               <Button>Add to Cart</Button>
               {/* <Link className="button">Add to Cart</Link> */}
+            </div>
             </div>
           </div>
         </div>

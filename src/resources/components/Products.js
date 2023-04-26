@@ -4,7 +4,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 import axios from '../../Api/axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-// import '../css/products.css'; // Import the CSS file
+import '../css/products.css'; // Import the CSS file
+import { ClimbingBoxLoader } from 'react-spinners';
 
 export const Products = () => {
   const [status, setStatus] = useState(false);
@@ -109,7 +110,12 @@ export const Products = () => {
        </>
     
     )
-:(<h6>Loading ...</h6>)   
+:(<>
+
+<div className="d-flex justify-content-center align-items-center vh-100">
+      <ClimbingBoxLoader color="#36d7b7" />
+    </div>
+</>)   
    }
    </Container>
     </>

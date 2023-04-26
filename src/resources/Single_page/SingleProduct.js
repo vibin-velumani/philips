@@ -65,7 +65,12 @@ const SingleProduct = () => {
           <div className="col-6">
             <div className="main-product-image">
               <div>
-                <ReactImageZoom {...props} />                
+                {/* <ReactImageZoom {...props} />                 */}
+                <img
+                  src={data.preimg}
+                  className="img-fluid"
+                  alt=""
+                />
               </div>
             </div>
             <div className="other-product-images d-flex flex-wrap gap-15">
@@ -107,7 +112,8 @@ const SingleProduct = () => {
                 </h3>
               </div>
               <div className="border-bottom py-3">
-                <p className="price">₹ {data.price}</p>
+                <p className="price">{data.offer?<><span className="red-p">₹{data.price-data.price*(data.offerper/100)}</span> &nbsp; <strike>₹{data.price}</strike></>:<p>₹{data.price}</p>
+}</p>
                 <div className="d-flex align-items-center gap-10">
                   <ReactStars
                     count={5}

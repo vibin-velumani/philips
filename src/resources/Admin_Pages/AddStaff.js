@@ -230,7 +230,7 @@ const AddStaff = () => {
 
             <div class="card overflow-hidden">
               <div class="row no-gutters row-bordered row-border-light">
-                <div class="col-md-3 pt-0">
+                <div class="col-md-2  pt-0">
                   <div class="list-group list-group-flush account-settings-links">
                     <a
                       className={`list-group-item list-group-item-action${
@@ -256,7 +256,7 @@ const AddStaff = () => {
                     </a>
                   </div>
                 </div>
-                <div class="col-md-9">{display(loader)}</div>
+                <div class="col-md-10 mt-4">{display(loader)}</div>
               </div>
             </div>
           </div>

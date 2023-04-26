@@ -4,7 +4,7 @@ import { Container, Row, Col, Card, ListGroup } from 'react-bootstrap';
 import axios from '../Api/axios';
 import { useAuth } from '../Authentication';
 import { ToastContainer,toast } from 'react-toastify';
-
+import { ClimbingBoxLoader } from 'react-spinners';
 
 
 
@@ -245,7 +245,13 @@ e.preventDefault();
   return (
     <>
     
-     {user===undefined?(<h1>Some thing went wriong</h1>)
+     {user===undefined?(
+     <>
+ <div className="d-flex justify-content-center align-items-center vh-100">
+      <ClimbingBoxLoader color="#36d7b7" />
+    </div>
+         </>
+     )
    :( <Container >
       
       <div class="container light-style flex-grow-1 container-p-y">

@@ -5,6 +5,8 @@ import axios from '../Api/axios';
 import '../resources/css/Cart.css'; 
 import { Link, useNavigate } from 'react-router-dom';
 import { AiFillDelete } from "react-icons/ai";
+import Empty from '../resources/images/cartempty.webp'
+import {Row,Col,Image} from 'react-bootstrap';
 function Cart() {
   const navigate=useNavigate();
   const [user, setUser] = useState();
@@ -188,7 +190,17 @@ function Cart() {
       </Container>
       
       ) : (
-        <h3>Cart is empty</h3>
+        <>
+         <Container>
+      <Row className="justify-content-center mt-5">
+        <Col xs="auto">
+          <Image src={Empty} fluid />
+          <h3 style={{textAlign:"center"}}>Your cart is empty.</h3>
+          <br/><br/>
+        </Col>
+      </Row>
+    </Container>
+        </>
       )}  
      
     </>

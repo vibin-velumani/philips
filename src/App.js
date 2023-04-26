@@ -55,7 +55,7 @@ function App() {
                     <Route index element={<DashBoard/>}></Route>
                     <Route path="addproduct" element={<QuestionSet/>}></Route>
                     <Route path="updateproduct" element={<UpdateProduct/>}></Route>
-                    <Route path="addoffers" element={<AddOffers/>}></Route>
+                    {/* <Route path="addoffers" element={<AddOffers/>}></Route> */}
                     <Route path="addstaff" element={<AddStaff/>}></Route>
            </Route>
            <Route path='adminlogin' element={<AdminLogin/>}/>

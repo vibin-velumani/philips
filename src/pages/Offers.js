@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SpecialProduct from '../resources/Single_page/components/SpecialProduct';
 import Container from '../resources/Single_page/components/Container';
+import axios from '../Api/axios';
 export default function Offers() {
+const [data,setdata]=useState([]);
+const load=async()=>{
+  await axios.get("/product/offers").then((res)=>{
+    setdata(res.data.data);
+  }).catch((err)=>{
+    console.log(err)
+  })
+}
+
+useEffect(()=>{
+load()
+},[])
+
+
   return (
 <Container class1="special-wrapper py-5 home-wrapper-2">
         <div className="row">
@@ -10,10 +25,12 @@ export default function Offers() {
           </div>
         </div>
         <div className="row">
-          <SpecialProduct />
-          <SpecialProduct />
-          <SpecialProduct />
-          <SpecialProduct />
+          {
+            data.map((d,i)=>{
+            return  <SpecialProduct key={i} data={d} />
+
+            })
+          }
         </div>
       </Container>  )
 }
