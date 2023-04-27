@@ -19,7 +19,7 @@ export default function Checkout() {
   const [shippingAddress, setshippingAddress] = useState([]);
   const[deliveryChoice,setdelivery]=useState(-1);
   const[name,setname]=useState();
-  const [total, settotal] = useState();
+  const [total, settotal] = useState(0);
 
 
 
@@ -51,6 +51,41 @@ const[flag,setflag]=useState(true);
 
 
   const [card,setcard]=useState(false);
+
+
+  const pay = (e)=>{
+    e.preventDefault();
+    if(total<=0){
+    alert("please enter amount");
+    }else{
+      var options = {
+        key: "rzp_test_AhlqkIORKwkNpo",
+        key_secret:"4v44yQbrTCawMlri1JQZSIzV",
+        amount: total*100,
+        currency:"INR",
+        name:"Crystal Parts",
+        description:"for payment",
+        handler: function(response){
+          alert(response.razorpay_payment_id);
+        },
+        prefill: {
+          name:"Subash",
+          email:"corerido@gmail.com",
+          contact:"8778732697"
+        },
+        notes:{
+          address:"Razorpay Corporate office"
+        },
+        theme: {
+          color:"#3399cc"
+        }
+      };
+      var pay = new window.Razorpay(options);
+      pay.open();
+    }
+  }
+
+
 
   const load = async () => {
     await axios
@@ -403,6 +438,9 @@ const[flag,setflag]=useState(true);
           <Button onClick={()=>{setPaymentMethod("COD");setcard(false)}} >Cash On Delivery</Button>{" "}
           
           <Button onClick={()=>{setPaymentMethod("DC");setcard(true)}}>Debit Card</Button>{" "}
+
+          <Button onClick={pay}>UPI</Button>{" "}
+
           
           <Button onClick={()=>{setPaymentMethod("BTC");setcard(false)}} disabled>Bitcoin</Button>{" "}
         </Form.Group>
