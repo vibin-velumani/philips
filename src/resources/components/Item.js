@@ -10,10 +10,10 @@ function Item (props) {
   const id=JSON.parse(useAuth().user)._id;
   console.log(id)
   async function addtocart(i){
-   await axios.post('auth/addcart',{id:id,item:{productname:i.name,productId:i._id,price:i.price,preimg:i.preimg}}).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
+   await axios.post('auth/addcart',{id:id,item:{productname:i.name,productId:i._id,price:i.price,preimg:i.preimg,category:i.category}}).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
   }
   async function ordernow(i){
-    await axios.post('auth/addcart',{id:id,item:{productname:i.name,productId:i._id,price:i.price,preimg:i.preimg}}).then((res)=>{navigate('/cart')}).catch((err)=>{console.log(err);navigate('/cart')})
+    await axios.post('auth/addcart',{id:id,item:{productname:i.name,productId:i._id,price:i.price,preimg:i.preimg,category:i.category}}).then((res)=>{navigate('/cart')}).catch((err)=>{console.log(err);navigate('/cart')})
    }
   return (
     <>

@@ -12,6 +12,54 @@ import { toast, ToastContainer } from 'react-toastify';
 export default function Checkout() {
 
 
+
+  const stateOptions = [
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chhattisgarh",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttarakhand",
+    "Uttar Pradesh",
+    "West Bengal",
+    "Andaman and Nicobar Islands",
+    "Chandigarh",
+    "Dadra and Nagar Haveli and Daman and Diu",
+    "Lakshadweep",
+    "Delhi",
+    "Puducherry",
+  ];
+  
+
+
+
+
+
+
+
+
+
+
   const [paymentMethod, setPaymentMethod] = useState("COD");
 
   const navigate=useNavigate();
@@ -214,13 +262,18 @@ const[flag,setflag]=useState(true);
               />
             </div>
             <div className="flex-grow-1">
-            <input
-                type="text"
-                placeholder="State"
-                className="form-control"
-                value={state}
-                onChange={(e)=>setstate(e.target.value)}
-              />
+      <select
+        className="form-control"
+        value={state}
+        onChange={(e) => setstate(e.target.value)}
+      >
+        <option value="">Select a state</option>
+        {stateOptions.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
             </div>
             <div className="flex-grow-1">
               <input
