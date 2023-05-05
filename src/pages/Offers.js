@@ -27,7 +27,12 @@ load()
         <div className="row">
           {
             data.map((d,i)=>{
-            return  <SpecialProduct key={i} data={d} />
+              const offerDate = new Date(d.offerdd);
+              const now = new Date();
+        
+              const diff = offerDate.getTime() - now.getTime();
+              if(diff>0)
+                    return  <SpecialProduct key={i} data={d} />
 
             })
           }
