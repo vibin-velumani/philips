@@ -15,36 +15,37 @@ const SpecialProduct = ({data}) => {
    }
 
   const [offerdd,setofferdd]=useState(data.offerdd);
+  const [offerduetime,setofferduetime]=useState(data.offerduetime);
    const [days, setDays] = useState(0);
    const [hours, setHours] = useState(0);
    const [minutes, setMinutes] = useState(0);
    const [seconds, setSeconds] = useState(0);
  
    useEffect(() => {
-     const interval = setInterval(() => {
-       const offerDate = new Date(offerdd);
-       const now = new Date();
- 
-       const diff = offerDate.getTime() - now.getTime();
- 
-       if (diff < 0) {
-         clearInterval(interval);
-         return;
-       }
- 
-       const daysLeft = Math.floor(diff / (1000 * 60 * 60 * 24));
-       const hoursLeft = Math.floor((diff / (1000 * 60 * 60)) % 24);
-       const minutesLeft = Math.floor((diff / 1000 / 60) % 60);
-       const secondsLeft = Math.floor((diff / 1000) % 60);
- 
-       setDays(daysLeft);
-       setHours(hoursLeft);
-       setMinutes(minutesLeft);
-       setSeconds(secondsLeft);
-     }, 1000);
- 
-     return () => clearInterval(interval);
-   }, [offerdd]);
+    const interval = setInterval(() => {
+      const offerDate = new Date(offerdd);
+      const now = new Date();
+  
+      let diff = offerDate.getTime() - now.getTime();
+      diff += offerduetime * 1000; // add offerduetime in seconds to diff
+      if (diff < 0) {
+        clearInterval(interval);
+        return;
+      }
+  
+      const daysLeft = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hoursLeft = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutesLeft = Math.floor((diff / 1000 / 60) % 60);
+      const secondsLeft = Math.floor((diff / 1000) % 60);
+  
+      setDays(daysLeft);
+      setHours(hoursLeft);
+      setMinutes(minutesLeft);
+      setSeconds(secondsLeft);
+    }, 1000);
+  
+    return () => clearInterval(interval);
+  }, [offerdd, offerduetime]);
 
 
   return (
