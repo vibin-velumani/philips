@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Chart } from "react-google-charts";
 import axios from "../../Api/axios";
+import {BsArrowDownRight,BsArrowUpRight} from "react-icons/bs"
 const styles = {
   display: "flex",
   justifyContent: "center",
@@ -43,7 +44,7 @@ export default function Dashboard() {
   const [loading,setloading]=useState(true);
   const [data,setdata]=useState();
   const [data3,setdata3]=useState();
-
+ const [stats,setstats]=useState('');
   const load=async()=>{
     await axios.post("order/findordercount").then((res)=>{
 // setdata([["State", "Orders"], ...res.data]);
@@ -64,6 +65,17 @@ console.log(res.data.data3);
       setloading(false)
     }).catch((err)=>{
       console.log(err);
+    });
+
+
+
+
+
+    await axios.post("order/orderdetails").then((res)=>{
+console.log(res.data)
+      setstats(res.data);
+    }).catch((err)=>{
+      console.log(err)
     })
   }
 
@@ -74,7 +86,55 @@ console.log(res.data.data3);
    <>{loading?<p>Loading....</p>:
    <>
 
+
+
+{stats!="" ?
+<>
+
+<h3 className="mb-4 title">Dashboard</h3>
+      <div className="d-flex justify-content-between align-items-center gap-3" >
+        <div className="d-flex justify-content-between align-items-end flex-grow-1 bg-white p-3 roudned-3">
+          <div>
+            <p className="desc">Total Revenue</p>
+            <h4 className="mb-0 sub-title"> ₹{stats.revenue}</h4>
+          </div>
+          <div className="d-flex flex-column align-items-end">
+            <h6>
+              <BsArrowDownRight /> 32%
+            </h6>
+            <p className="mb-0  desc">Last 30 Days</p>
+          </div>
+        </div>
+        <div className="d-flex justify-content-between align-items-end flex-grow-1 bg-white p-3 roudned-3">
+          <div>
+            <p className="desc">Delivery</p>
+            <h4 className="mb-0 sub-title">Pending : {stats.total-stats.delivered}</h4>
+            <h4 className="mb-0 sub-title">Delivered : {stats.delivered}</h4>
+          </div>
+          <div className="d-flex flex-column align-items-end">
+          <h4 className="mb-0 sub-title">Total Orders : {stats.total}</h4>
+
+          </div>
+        </div>
+        <div className="d-flex justify-content-between align-items-end flex-grow-1 bg-white p-3 roudned-3">
+          <div>
+            <p className="desc">Users </p>
+            <h4 className="mb-0 sub-title">Count : {stats.usercount}</h4>
+          </div>
+          <div className="d-flex flex-column align-items-end">
+            <h6 className="green">
+              <BsArrowUpRight /> 12%
+            </h6>
+            <p className="mb-0 desc">Compared To April 2023</p>
+          </div>
+        </div>
+      </div>
+      </>:<h6>Loading</h6>}
 <div style={styles}>
+
+
+
+
 <Chart
       chartType="PieChart"
       data={data3}

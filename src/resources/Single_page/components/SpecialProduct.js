@@ -83,7 +83,7 @@ const SpecialProduct = ({data}) => {
     </div>
               <div className="prod-count my-3">
                 <p>Products: {data.quantity}</p>
-                <div className="progress">
+                {/* <div className="progress">
                   <div
                     className="progress-bar"
                     role="progressbar"
@@ -92,7 +92,7 @@ const SpecialProduct = ({data}) => {
                     aria-valuemin="0"
                     aria-valuemax="100"
                   ></div>
-                </div>
+                </div> */}
 
               </div>
               <Button onClick={addtocart}>Add to Cart</Button>

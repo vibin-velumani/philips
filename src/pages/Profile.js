@@ -69,7 +69,7 @@ const updateInfo=async(e)=>
     console.log(ids);
 
     await axios.post('/auth/userdetails',{id:ids}).then((res)=>{
-      console.log(res.data)
+      console.log(res.data.details.orders)
       setorders(res.data.details.orders);
       setUser(res.data.details);setName(res.data.details.name);setEmail(res.data.details.email);setemailvflag(res.data.details.verified);
     setAddress(res.data.details.address);
@@ -182,12 +182,14 @@ const updateInfo=async(e)=>
 <>
         <h2>Order History</h2>
         <Row>
-        <MDBCard className="shadow-0 border mb-4">
+        
+        {orders.map((order) => (
+    <MDBCard className="shadow-0 border mb-4">
                     <MDBCardBody>
                       <MDBRow>
                         <MDBCol md="2">
                           <MDBCardImage
-                            src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/13.webp"
+                            src={order.cart[0].preimg}
                             fluid
                             alt="Phone"
                           />
@@ -196,33 +198,33 @@ const updateInfo=async(e)=>
                           md="2"
                           className="text-center d-flex justify-content-center align-items-center"
                         >
-                          <p className="text-muted mb-0">Samsung Galaxy</p>
+                          <p className="text-muted mb-0">{order.cart[0].productname}</p>
                         </MDBCol>
                         <MDBCol
                           md="2"
                           className="text-center d-flex justify-content-center align-items-center"
                         >
-                          <p className="text-muted mb-0 small">White</p>
+                          <p className="text-muted mb-0 small">{order.paymenttype}</p>
                         </MDBCol>
                         <MDBCol
                           md="2"
                           className="text-center d-flex justify-content-center align-items-center"
                         >
                           <p className="text-muted mb-0 small">
-                            Capacity: 64GB
+                            Payment : {order.paymentstatus}
                           </p>
                         </MDBCol>
                         <MDBCol
                           md="2"
                           className="text-center d-flex justify-content-center align-items-center"
                         >
-                          <p className="text-muted mb-0 small">Qty: 1</p>
+                          <p className="text-muted mb-0 small">Qty: {order.cart[0].quantity}</p>
                         </MDBCol>
                         <MDBCol
                           md="2"
                           className="text-center d-flex justify-content-center align-items-center"
                         >
-                          <p className="text-muted mb-0 small">$499</p>
+                          <p className="text-muted mb-0 small"> ₹{order.cart[0].price}</p>
                         </MDBCol>
                       </MDBRow>
                       <hr
@@ -252,30 +254,13 @@ const updateInfo=async(e)=>
                               Out for delivary
                             </p>
                             <p className="text-muted mt-1 mb-0 small ms-xl-5">
-                              Delivered
+                              {order.orderstatus}
                             </p>
                           </div>
                         </MDBCol>
                       </MDBRow>
                     </MDBCardBody>
                   </MDBCard>
-        {orders.map((order) => (
-  <Col sm={6} md={4} lg={3} key={order.id}>
-    <Card className="shadow-sm mb-4">
-      <Card.Body>
-        <Card.Title className="fw-bold mb-3">
-          Order Status: {order.orderstatus}
-        </Card.Title>
-        <Card.Subtitle className="mb-2 text-muted fs-5">
-          Order Total: ₹{order.cartValue}
-        </Card.Subtitle>
-        <Card.Text className="fw-light fs-6 mb-3">
-          Order Date: {order.purchaseDate}
-        </Card.Text>
-        <button className="btn btn-primary">View Details</button>
-      </Card.Body>
-    </Card>
-  </Col>
 ))}
           {orders.length===0?"No Orders Yet":""}
         </Row>
