@@ -56,13 +56,13 @@ export default function HomePage() {
             <Card>
               <Card.Img variant="top" src={product1} />
               <Card.Body>
-                <Card.Title>Product 1</Card.Title>
+                <Card.Title>Angel Grinder</Card.Title>
                 <Card.Text>
                   The Bosch angle grinder is a versatile and powerful tool designed for cutting, grinding, and sanding a variety of materials.
                   It features a powerful motor and a compact design that makes it easy to handle and control.
                 </Card.Text>
-                <Button variant="primary" onClick={() => navigate('/products/1')}>
-                  Learn more
+                <Button variant="primary" onClick={() => navigate('/products')}>
+                Explore
                 </Button>
               </Card.Body>
             </Card>
@@ -71,14 +71,14 @@ export default function HomePage() {
             <Card>
               <Card.Img variant="top" src={product2} />
               <Card.Body>
-                <Card.Title>Product 2</Card.Title>
+                <Card.Title>Brush Cleaner</Card.Title>
                 <Card.Text>
                   The Bosch brush cleaner is a powerful and efficient tool designed to help you clean tough dirt and grime from various surfaces
                   . It features a compact and ergonomic design that allows for comfortable handling and ease of use..
                 </Card.Text>
-                <Button variant="primary" onClick={() => navigate('/products/2')}>
-                  Learn more
-                </Button>
+                <Button variant="primary" onClick={() => navigate('/products')}>
+                Explore
+                                </Button>
               </Card.Body>
             </Card>
           </Col>
@@ -86,14 +86,14 @@ export default function HomePage() {
             <Card>
               <Card.Img variant="top" src={product3} />
               <Card.Body>
-                <Card.Title>Product 3</Card.Title>
+                <Card.Title>Cordless Tool</Card.Title>
                 <Card.Text>
                   The Bosch cordless tool is a versatile and powerful tool designed for a variety of DIY and professional applications.
                   It is powered
                   by a lithium-ion battery that provides long-lasting performance and features an ergonomic  comfortable handling.
                 </Card.Text>
-                <Button variant="primary" onClick={() => navigate('/products/3')}>
-                  Learn more
+                <Button variant="primary" onClick={() => navigate('/products')}>
+                  Explore
                 </Button>
               </Card.Body>
             </Card>
@@ -102,13 +102,13 @@ export default function HomePage() {
             <Card>
               <Card.Img variant="top" src={product4} />
               <Card.Body>
-                <Card.Title>Product 4</Card.Title>
+                <Card.Title>Grass Trimmer</Card.Title>
                 <Card.Text>
                   The Bosch grass trimmer is a lightweight and efficient tool designed for trimming grass and weeds in small to medium-sized gardens.
                   It features a powerful motor and a telescopic handle that  it easy to adjust the length to suit your needs.
                 </Card.Text>
-                <Button variant="primary" onClick={() => navigate('/products/4')}>
-                  Learn more
+                <Button variant="primary" onClick={() => navigate('/products')}>
+                Explore
                 </Button>
               </Card.Body>
             </Card>
@@ -130,7 +130,7 @@ export default function HomePage() {
                   It is powered
                   by a lithium-ion battery that provides long-lasting performance and features an ergonomic  comfortable handling.
                 </Card.Text>
-                <Button variant="primary" onClick={() => navigate('/news/1')}>
+                <Button variant="primary" onClick={() => navigate('/ContactUs')}>
                   Read more
                 </Button>
               </Card.Body>
@@ -145,7 +145,7 @@ export default function HomePage() {
                   The Bosch grass trimmer is a lightweight and efficient tool designed for trimming grass and weeds in small to medium-sized gardens.
                   It features a powerful motor and a telescopic handle that makes it easy to adjust the length to suit your needs.
                 </Card.Text>
-                <Button variant="primary" onClick={() => navigate('/news/2')}>
+                <Button variant="primary" onClick={() => navigate('/ContactUs')}>
                   Read more
                 </Button>
               </Card.Body>
@@ -160,7 +160,7 @@ export default function HomePage() {
                   The Bosch angle grinder is a versatile and powerful tool designed for cutting, grinding, and sanding a variety of materials.
                   It features a powerful motor and a compact design that makes it easy to handle and control.
                 </Card.Text>
-                <Button variant="primary" onClick={() => navigate('/news/3')}>
+                <Button variant="primary" onClick={() => navigate('/ContactUs') }>
                   Read more
                 </Button>
               </Card.Body>

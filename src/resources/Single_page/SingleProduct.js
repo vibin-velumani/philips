@@ -73,7 +73,7 @@ const SingleProduct = () => {
                 />
               </div>
             </div>
-            <div className="other-product-images d-flex flex-wrap gap-15">
+            {/* <div className="other-product-images d-flex flex-wrap gap-15">
               <div>
                 <img
                   src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg"
@@ -102,7 +102,7 @@ const SingleProduct = () => {
                   alt=""
                 />
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="col-6">
             <div className="main-product-details">
@@ -219,16 +219,13 @@ const SingleProduct = () => {
             <h4>Description</h4>
             <div className="bg-white p-3">
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Tenetur nisi similique illum aut perferendis voluptas, quisquam
-                obcaecati qui nobis officia. Voluptatibus in harum deleniti
-                labore maxime officia esse eos? Repellat?
+                {data.desc}
               </p>
             </div>
           </div>
         </div>
       </Container>
-      <Container class1="reviews-wrapper home-wrapper-2">
+      {/* <Container class1="reviews-wrapper home-wrapper-2">
         <div className="row">
           <div className="col-12">
             <h3 id="review">Reviews</h3>
@@ -306,17 +303,17 @@ const SingleProduct = () => {
             </div>
           </div>
         </div>
-      </Container>
-      <Container class1="popular-wrapper py-5 home-wrapper-2">
+      </Container> */}
+      {/* <Container class1="popular-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
             <h3 className="section-heading">Our Popular Products</h3>
           </div>
         </div>
         <div className="row">
-          {/* <ProductCard /> */}
+          <ProductCard />
         </div>
-      </Container>
+      </Container> */}
 
       <div
         className="modal fade"
