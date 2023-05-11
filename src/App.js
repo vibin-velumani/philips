@@ -38,11 +38,11 @@ function App() {
     <Routes>
       <Route path='/' element={<Start />}>
         <Route index element={<Home/>}></Route>
-        <Route path="products" element={<Products/>}></Route>
+        <Route path="products" element={<AuthRequired><Products/></AuthRequired>}></Route>
         <Route path='profile' element={<AuthRequired><Profile/></AuthRequired>}/>
-        <Route path='cart' element={<Cart />}/>
+        <Route path='cart' element={<AuthRequired><Cart /></AuthRequired>}/>
         <Route path='checkout' element={<Checkout/>}/>
-        <Route path='offers' element={<Offers/>}/>
+        <Route path='offers' element={<AuthRequired><Offers/></AuthRequired>}/>
         <Route path='aboutus' element={<Location/>}/>
         <Route path='ContactUs' element={<ContactUs/>}/> 
         <Route path='PrivacyPolicy' element={<PrivacyPolicy/>}/>

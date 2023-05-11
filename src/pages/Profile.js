@@ -5,6 +5,8 @@ import axios from '../Api/axios';
 import { useAuth } from '../Authentication';
 import { ToastContainer,toast } from 'react-toastify';
 import { ClimbingBoxLoader } from 'react-spinners';
+
+
 import {
   MDBCard,
   MDBCardBody,
@@ -18,11 +20,18 @@ import {
   MDBRow,
   MDBTypography,
 } from "mdb-react-ui-kit";
+import MetaMask from './MetaMask';
 
 
 function Profile() {
 
 const[orders,setorders]=useState()
+
+
+
+
+
+
 
 
   const [user,setUser]=useState();
@@ -44,6 +53,7 @@ const [cpassword,setcpassword]=useState('');
 const [opassword,setopassword]=useState('');
 const[flag,setFlag]=useState(false);
 const[ieflag,setieflag]=useState(false);
+
 
 const updateInfo=async(e)=>
 {
@@ -268,7 +278,16 @@ const updateInfo=async(e)=>
     }
     else if(ch===4)
     {
-      return <h6>No Notification</h6>
+
+
+      
+
+    
+      
+
+
+
+      return <MetaMask/>
     }
     else
     {
@@ -342,7 +361,7 @@ e.preventDefault();
             <a className={`list-group-item list-group-item-action${loader === 1 ? " active" : ""}`}  data-toggle="list"  onClick={()=>{setLoader(1)}}>General</a>
             <a className={`list-group-item list-group-item-action${loader === 2 ? " active" : ""}`} data-toggle="list"  onClick={()=>{setLoader(2)}}>Change password</a>
             <a className={`list-group-item list-group-item-action${loader === 3 ? " active" : ""}`} data-toggle="list" onClick={()=>{setLoader(3)}}>Orders</a>
-            {/* <a className={`list-group-item list-group-item-action${loader === 4 ? " active" : ""}`} data-toggle="list" onClick={()=>{setLoader(4)}}>Notifications</a> */}
+            <a className={`list-group-item list-group-item-action${loader === 4 ? " active" : ""}`} data-toggle="list" onClick={()=>{setLoader(4)}}>RIDO Coins</a>
           </div>
         </div>
         <div class="col-md-9">

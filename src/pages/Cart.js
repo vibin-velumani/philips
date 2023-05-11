@@ -26,6 +26,7 @@ function Cart() {
     try {
       await axios.post('/auth/updatecart', { id: id, cart: updatedCart,total:totalRate });
       setTrigger(!trigger);
+      
     } catch (err) {
       console.log(err);
     }

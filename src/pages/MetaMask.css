@@ -1,0 +1,28 @@
+.metamask-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .metamask-text {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  
+  .metamask-button {
+    padding: 16px 32px;
+    font-size: 18px;
+    border: none;
+    background-color: #0072c6;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .metamask-button:hover {
+    background-color: #005fa3;
+  }
+  

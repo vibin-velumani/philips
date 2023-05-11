@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import '../css/Header.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -10,6 +10,7 @@ import logo from '../images/logo1.png'
 export default function Header() {
   const navigate=useNavigate();
   const auth=useAuth();
+  const [count,setCount]=useState(auth.size);
   console.log(auth.user)
   return (
     <Navbar collapseOnSelect expand="lg"  className="head">
@@ -23,8 +24,12 @@ export default function Header() {
             <Nav.Link onClick={()=>{navigate('/')}} className='space'>Home</Nav.Link>
             <Nav.Link href="products" className='space'>Products</Nav.Link>
             <Nav.Link href="offers" className='space'>Offers</Nav.Link>
-
-            <Nav.Link href="/cart" className='space'>Cart</Nav.Link>
+            {count>0?
+            <Nav.Link href="/cart" className='space'>
+  Cart <span className="badge bg-danger">{count}</span>
+</Nav.Link>: <Nav.Link href="/cart" className='space'>
+  Cart</Nav.Link>
+}
             <Nav.Link onClick={()=>{navigate('/profile')}} className='space'>Profile</Nav.Link>
              {(auth.user!==null)?<Nav.Link  className='space' onClick={auth.logout}>Logout</Nav.Link>
              :<Nav.Link onClick={()=>{navigate('/login')}} className='space'>Login</Nav.Link>}     

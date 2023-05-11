@@ -73,7 +73,7 @@ export default function Checkout() {
 
   const placeOrder=async()=>{
     console.log(total)
-          await axios.post('/order/placeorder',{uid:id,address:shippingAddress[deliveryChoice],payment:paymentMethod,value:total}).then((res)=>{console.log(res);toast.success("Order Placed Successfully"); setTimeout(()=>{
+          await axios.post('/order/placeorder',{uid:id,address:shippingAddress[deliveryChoice],payment:paymentMethod,value:total}).then((res)=>{console.log(res);toast.success("Order Placed Successfully"); localStorage.setItem("size",Number(0));setTimeout(()=>{
    navigate('/')
 
           },[3000])}).catch((err)=>{console.log(err)})

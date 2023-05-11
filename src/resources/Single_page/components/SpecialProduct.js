@@ -11,7 +11,11 @@ const SpecialProduct = ({data}) => {
   const id=JSON.parse(useAuth().user)._id;
   const navigate=useNavigate();
   async function addtocart(){
-    await axios.post('auth/addcart',{id:id,item:{productname:data.name,productId:data._id,price:data.price,preimg:data.preimg,category:data.category}}).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
+    await axios.post('auth/addcart',{id:id,item:{productname:data.name,productId:data._id,price:data.price,preimg:data.preimg,category:data.category}}).then((res)=>{console.log(res);}).catch((err)=>{
+      let v=localStorage.getItem('size');
+      localStorage.setItem('size',Number(v)+1);console.log(err);    window.location.reload();  
+    
+    })
    }
 
   const [offerdd,setofferdd]=useState(data.offerdd);

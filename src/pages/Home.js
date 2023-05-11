@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 import Container from 'react-bootstrap/Container';
@@ -16,11 +16,103 @@ import banner3 from '../resources/images/bosch_whwd_2in1-2_gif_1200x675.gif';
 import news1 from '../resources/images/bosch_whwd_2in1-2_gif_1200x675.gif';
 import news2 from '../resources/images/news2.gif';
 import news3 from '../resources/images/news3.gif';
+import ChatBot from "react-simple-chatbot";
+import { Segment } from 'semantic-ui-react';
+import "../resources/css/Home.css"
+import bot from "../resources/images/chatbot.png"
+
+
+
 export default function HomePage() {
   const navigate = useNavigate();
+  const [flag,setflag]=useState(false);
+  const steps = [  {    id: '1',    message: 'Welcome to Crystal Parts! How can we assist you today?',    trigger: '2',  },  {    id: '2',    options: [      { value: 'shop', label: 'Start shopping', trigger: '3' },      { value: 'support', label: 'Customer support', trigger: '11' },    ],
+  },
+  {
+    id: '3',
+    message: 'Great! What would you like to shop for today?',
+    trigger: '4',
+  },
+  {
+    id: '4',
+    options: [
+      { value: 'automotive', label: 'Automotive parts', trigger: '5' },
+      { value: 'electronics', label: 'Electronics', trigger: '6' },
+      { value: 'apparel', label: 'Apparel', trigger: '7' },
+    ],
+  },
+  {
+    id: '5',
+    message: 'We have a wide range of automotive parts! What are you looking for specifically?',
+    trigger: '8',
+  },
+  {
+    id: '6',
+    message: 'We have a wide range of electronics! What are you looking for specifically?',
+    trigger: '8',
+  },
+  {
+    id: '7',
+    message: 'We have a wide range of apparel! What are you looking for specifically?',
+    trigger: '8',
+  },
+  {
+    id: '8',
+    user: true,
+    trigger: '9',
+  },
+  {
+    id: '9',
+    message: 'Got it! We will check our inventory and let you know if we have any {previousValue} available. Would you like to proceed with your purchase?',
+    trigger: '10',
+  },
+  {
+    id: '10',
+    options: [
+      { value: 'yes', label: 'Yes', trigger: '12' },
+      { value: 'no', label: 'No', trigger: '13' },
+    ],
+  },
+  {
+    id: '11',
+    message: 'Our customer support team is available 24/7. How can we assist you?',
+    trigger: '2',
+  },
+  {
+    id: '12',
+    message: 'Great! We have received your order and will process it shortly. Thank you for shopping with Crystal Parts!',
+    end: true,
+  },
+  {
+    id: '13',
+    message: 'No problem. Let us know if you need any further assistance. Thank you for visiting Crystal Parts!',
+    end: true,
+  },
+];
 
+ 
+
+  
   return (
     <>
+    <div className='segment'>
+     
+      <img src={bot} onClick={()=>setflag(!flag)} style={{
+          bottom: '20px',
+          right: '20px',
+          width: '65px',
+          height: '65px',
+          borderRadius: '50%',
+          backgroundColor: '#4db6ac',
+          boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
+          cursor: 'pointer',
+        }}></img>
+
+      {flag &&
+           <ChatBot steps={steps}  opened={true} 
+          />
+}
+    </div>
     <Container fluid>
       <Carousel>
         <Carousel.Item style={{  height: '450px' }}>
@@ -168,6 +260,8 @@ export default function HomePage() {
           </Col>
         </Row>
       </Container>
+
+      
     </>
   );
 }

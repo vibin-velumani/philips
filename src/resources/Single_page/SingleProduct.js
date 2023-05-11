@@ -49,7 +49,13 @@ const SingleProduct = () => {
   };
 
   async function addtocart(){
-    await axios.post('auth/addcart',{id:id,item:{productname:data.name,productId:data._id,price:data.price,preimg:data.preimg}}).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
+    await axios.post('auth/addcart',{id:id,item:{productname:data.name,productId:data._id,price:data.price,preimg:data.preimg}}).then((res)=>{console.log(res);
+    let v=localStorage.getItem('size');
+    localStorage.setItem('size',v+1);
+    
+    }).catch((err)=>{ let v=localStorage.getItem('size');
+    localStorage.setItem('size',Number(v)+1);console.log(err);    window.location.reload();  
+  })
    }
 
   const closeModal = () => {};
